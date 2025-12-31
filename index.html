@@ -137,229 +137,179 @@
 </head>
 
 <body class="m-0 font-['Poppins'] bg-[#F8F9FC] text-[#0B0B0B]">
-  <!-- CONTAINER: khusus area yang memang ingin rata tengah -->
+  <!-- CONTAINER -->
   <div class="max-w-[1130px] mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- 1: NAVBAR -->
-    <!-- NAVBAR WRAPPER -->
+
+    <!-- HEADER -->
     <header class="mt-6">
-      <!-- Top bar: logo + (desktop swiper) + (mobile hamburger) -->
+      <!-- Top bar -->
       <nav id="Navbar" class="flex items-center gap-4">
-        <!-- Logo + divider -->
-        <div class="logo-container flex items-center gap-4 shrink-0">
+        <!-- Logo -->
+        <div class="flex items-center gap-4 shrink-0">
           <a href="index.html" class="flex shrink-0">
             <img src="assets/images/logos/logo.svg" alt="logo" />
           </a>
           <div class="hidden lg:block h-12 border border-[#E8EBF4]"></div>
         </div>
 
-        <!-- DESKTOP MENU (lg+) -->
-        <div class="relative flex-1 min-w-0 hidden lg:block">
-          <div
-            class="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent z-10">
-          </div>
+        <!-- Search (desktop) -->
+        <form action="searchPage.html"
+          class="hidden lg:flex flex-1 max-w-[520px] items-center rounded-full border border-[#E8EBF4] p-[12px_20px] gap-[10px]
+          focus-within:ring-2 focus-within:ring-[#FF6B18] transition-all duration-300 bg-white">
+          <button type="submit" class="w-5 h-5 flex shrink-0" aria-label="Search">
+            <img src="assets/images/icons/search-normal.svg" alt="icon" />
+          </button>
+          <input type="text"
+            class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#A3A6AE]"
+            placeholder="Search hot trendy news today..." />
+        </form>
 
-          <div id="menuBarSwiper" class="swiper">
-            <div class="swiper-wrapper">
-              <!-- slide item (ulangin untuk semua menu) -->
-              <div class="swiper-slide !w-auto px-2 first:pl-0 last:pr-0">
-                <a href="homePage.html"
-                  class="rounded-full px-[22px] py-3 flex items-center justify-center gap-[10px] font-semibold text-base bg-white border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300 shrink-0">
-                  <div class="w-6 h-6 flex shrink-0">
-                    <img src="assets/images/icons/heart.svg" alt="icon" class="w-full h-full" />
-                  </div>
-                  <span>Home</span>
-                </a>
-              </div>
+        <!-- Actions (desktop) -->
+        <div class="hidden lg:flex items-center gap-3 shrink-0">
+          <a href="searchPage.html"
+            class="rounded-full px-[18px] py-3 flex items-center justify-center gap-2 font-semibold text-sm
+            transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
+            Search
+          </a>
 
-              <div class="swiper-slide !w-auto px-2">
-                <a href="publicationPage.html"
-                  class="rounded-full px-[22px] py-3 flex items-center justify-center gap-[10px] font-semibold text-base bg-white border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300 shrink-0">
-                  <div class="w-6 h-6 flex shrink-0">
-                    <img src="assets/images/icons/heart.svg" alt="icon" class="w-full h-full" />
-                  </div>
-                  <span>Publication</span>
-                </a>
-              </div>
-
-              <div class="swiper-slide !w-auto px-2">
-                <a href="eventPage.html"
-                  class="rounded-full px-[22px] py-3 flex items-center justify-center gap-[10px] font-semibold text-base bg-white border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300 shrink-0">
-                  <div class="w-6 h-6 flex shrink-0">
-                    <img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
-                  </div>
-                  <span>Event</span>
-                </a>
-              </div>
-
-              <div class="swiper-slide !w-auto px-2">
-                <a href="aboutPage.html"
-                  class="rounded-full px-[22px] py-3 flex items-center justify-center gap-[10px] font-semibold text-base bg-white border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300 shrink-0">
-                  <div class="w-6 h-6 flex shrink-0">
-                    <img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
-                  </div>
-                  <span>About</span>
-                </a>
-              </div>
-
-              <div class="swiper-slide !w-auto px-2">
-                <a href="contatUsPage.html"
-                  class="rounded-full px-[22px] py-3 flex items-center justify-center gap-[10px] font-semibold text-base bg-white border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300 shrink-0">
-                  <div class="w-6 h-6 flex shrink-0">
-                    <img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
-                  </div>
-                  <span>Contact Us</span>
-                </a>
-              </div>
-
-              <div class="swiper-slide !w-auto px-2">
-                <a href="dummyPage.html"
-                  class="rounded-full px-[22px] py-3 flex items-center justify-center gap-[10px] font-semibold text-base bg-white border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300 shrink-0">
-                  <div class="w-6 h-6 flex shrink-0">
-                    <img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
-                  </div>
-                  <span>Dummy</span>
-                </a>
-              </div>
-            </div>
-          </div>
+          <a href="#"
+            class="rounded-full px-[18px] py-3 flex items-center justify-center gap-2 font-bold text-sm
+            transition-all duration-300 bg-[#FF6B18] text-white hover:shadow-[0_10px_20px_0_#FF6B1880]">
+            <span class="w-5 h-5 flex shrink-0">
+              <img src="assets/images/icons/favorite-chart.svg" alt="icon" class="w-full h-full" />
+            </span>
+            <span>Subscription</span>
+          </a>
         </div>
 
-        <!-- Desktop: panah kanan -->
-        <button id="menuBarNext"
-          class="swiper-button-next !static !m-0 !w-9 !h-9 shrink-0 hidden lg:flex rounded-full bg-white border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors"
-          aria-label="Scroll menu right"></button>
-
-        <div id="menuBarPrev" class="swiper-button-prev hidden"></div>
-
-        <!-- MOBILE/TABLET: Hamburger button (<= md) -->
+        <!-- Mobile hamburger -->
         <button id="hamburgerBtn"
           class="lg:hidden ml-auto w-10 h-10 rounded-full bg-white border border-[#EEF0F7] flex items-center justify-center"
           aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle menu">
-          <!-- icon burger -->
-          <svg id="iconBurger" class="w-5 h-5 block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
+          <svg id="iconBurger" class="w-5 h-5 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <!-- icon X -->
-          <svg id="iconClose" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
+          <svg id="iconClose" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
           </svg>
         </button>
       </nav>
 
-      <!-- MOBILE MENU PANEL (muncul saat hamburger diklik) -->
+      <!-- Mobile panel (Search + Actions + Menu) -->
       <div id="mobileMenu" class="lg:hidden hidden mt-4">
-        <div class="rounded-2xl border border-[#EEF0F7] bg-white p-3">
-          <div class="grid gap-2">
+        <div class="rounded-2xl border border-[#EEF0F7] bg-white p-3 space-y-3">
+          <!-- Search (mobile) -->
+          <form action="searchPage.html"
+            class="flex items-center rounded-full border border-[#E8EBF4] p-[12px_16px] gap-[10px]
+            focus-within:ring-2 focus-within:ring-[#FF6B18] transition-all duration-300 bg-white">
+            <button type="submit" class="w-5 h-5 flex shrink-0" aria-label="Search">
+              <img src="assets/images/icons/search-normal.svg" alt="icon" />
+            </button>
+            <input type="text"
+              class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#A3A6AE]"
+              placeholder="Search..." />
+          </form>
+
+          <!-- Actions (mobile) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <a href="searchPage.html"
+              class="w-full rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300 text-center bg-white">
+              Search
+            </a>
+
+            <a href="#"
+              class="w-full rounded-xl px-4 py-3 font-bold text-sm bg-[#FF6B18] text-white text-center
+              hover:shadow-[0_10px_20px_0_#FF6B1880] transition-all duration-300">
+              Subscription
+            </a>
+          </div>
+
+          <!-- Menu (mobile) -->
+          <div class="grid gap-2 pt-1">
             <a href="homePage.html"
-              class="rounded-xl px-4 py-3 font-semibold text-sm border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300">
+              class="rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300">
               Home
             </a>
             <a href="publicationPage.html"
-              class="rounded-xl px-4 py-3 font-semibold text-sm border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300">
+              class="rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300">
               Publication
             </a>
             <a href="eventPage.html"
-              class="rounded-xl px-4 py-3 font-semibold text-sm border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300">
+              class="rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300">
               Event
             </a>
             <a href="aboutPage.html"
-              class="rounded-xl px-4 py-3 font-semibold text-sm border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300">
+              class="rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300">
               About
             </a>
             <a href="contatUsPage.html"
-              class="rounded-xl px-4 py-3 font-semibold text-sm border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300">
-              Contact Us
-            </a>
-            <a href="dummyPage.html"
-              class="rounded-xl px-4 py-3 font-semibold text-sm border-2 border-transparent hover:border-[#FF6B18] transition-colors duration-300">
-              Dummy
+              class="rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300">
+              Contact
             </a>
           </div>
         </div>
       </div>
-    </header>
 
-    <!-- 2: CATEGORY -->
-    <nav id="Category" class="mt-6 flex flex-wrap justify-start items-start gap-2 sm:gap-3 md:gap-4">
-      <form action="searchPage.html"
-        class="w-full lg:w-[450px] flex items-center rounded-full border border-[#E8EBF4] p-[12px_20px] gap-[10px] focus-within:ring-2 focus-within:ring-[#ff6b18] transition-all duration-300 bg-white">
-        <button type="submit" class="w-5 h-5 flex shrink-0">
-          <img src="assets/images/icons/search-normal.svg" alt="icon" />
-        </button>
-        <input type="text"
-          class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#A3A6AE]"
-          placeholder="Search hot trendy news today..." />
-      </form>
-      <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-        <a href="#"
-          class="w-full sm:w-auto justify-center rounded-full px-[22px] py-3 flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
-          Search
-        </a>
-
-        <a href="#"
-          class="w-full sm:w-auto justify-center rounded-full px-[22px] py-3 flex items-center gap-[10px] font-bold transition-all duration-300 bg-[#FF6B18] text-white hover:shadow-[0_10px_20px_0_#FF6B1880]">
-          <div class="w-6 h-6 flex shrink-0">
-            <img src="assets/images/icons/favorite-chart.svg" alt="icon" />
-          </div>
-          <span>Subscription</span>
-        </a>
-      </div>
-    </nav>
-
-    <!-- 2: CATEGORY -->
-    <nav id="Category" class="mt-6 flex flex-wrap justify-start items-start gap-2 sm:gap-3 md:gap-4">
-      <nav id="Category" class="mt-6 flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4">
-        <a href="categoryPage.html"
-          class="rounded-full px-4 py-2 sm:px-[18px] sm:py-[10px] md:px-[22px] md:py-3 flex items-center justify-center gap-2 sm:gap-[10px] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
-          <div class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex shrink-0">
+      <!-- CATEGORY / MENU BAR (desktop) - tanpa scroll/swiper -->
+      <nav id="Category"
+        class="hidden lg:flex mt-6 flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
+        <a href="homePage.html"
+          class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7]
+          hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+          <span class="w-5 h-5 flex shrink-0">
             <img src="assets/images/icons/heart.svg" alt="icon" class="w-full h-full" />
-          </div>
+          </span>
           <span>Home</span>
         </a>
 
-        <a href="categoryPage.html"
-          class="rounded-full px-4 py-2 sm:px-[18px] sm:py-[10px] md:px-[22px] md:py-3 flex items-center justify-center gap-2 sm:gap-[10px] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
-          <div class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex shrink-0">
+        <a href="publicationPage.html"
+          class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7]
+          hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+          <span class="w-5 h-5 flex shrink-0">
             <img src="assets/images/icons/heart.svg" alt="icon" class="w-full h-full" />
-          </div>
+          </span>
           <span>Publication</span>
         </a>
 
-        <a href="categoryPage.html"
-          class="rounded-full px-4 py-2 sm:px-[18px] sm:py-[10px] md:px-[22px] md:py-3 flex items-center justify-center gap-2 sm:gap-[10px] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
-          <div class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex shrink-0">
+        <a href="eventPage.html"
+          class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7]
+          hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+          <span class="w-5 h-5 flex shrink-0">
             <img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
-          </div>
+          </span>
           <span>Event</span>
         </a>
 
-        <a href="categoryPage.html"
-          class="rounded-full px-4 py-2 sm:px-[18px] sm:py-[10px] md:px-[22px] md:py-3 flex items-center justify-center gap-2 sm:gap-[10px] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
-          <div class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex shrink-0">
+        <a href="aboutPage.html"
+          class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7]
+          hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+          <span class="w-5 h-5 flex shrink-0">
             <img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
-          </div>
+          </span>
           <span>About</span>
         </a>
 
-        <a href="categoryPage.html"
-          class="rounded-full px-4 py-2 sm:px-[18px] sm:py-[10px] md:px-[22px] md:py-3 flex items-center justify-center gap-2 sm:gap-[10px] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
-          <div class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex shrink-0">
+        <a href="contatUsPage.html"
+          class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7]
+          hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+          <span class="w-5 h-5 flex shrink-0">
             <img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
-          </div>
-          <span>Contact Us</span>
+          </span>
+          <span>Contact</span>
         </a>
 
-        <a href="categoryPage.html"
-          class="rounded-full px-4 py-2 sm:px-[18px] sm:py-[10px] md:px-[22px] md:py-3 flex items-center justify-center gap-2 sm:gap-[10px] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">
-          <div class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex shrink-0">
+                <a href="contatUsPage.html"
+          class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7]
+          hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+          <span class="w-5 h-5 flex shrink-0">
             <img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
-          </div>
-          <span>Dummy</span>
+          </span>
+          <span>Contact</span>
         </a>
+
+        
       </nav>
-    </nav>
+    </header>
 
     <!-- 3: FEATURED: tetap ditaruh setelah category, tapi dibuat keluar dari padding container -->
     <section id="Featured" class="mt-6 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-none">
