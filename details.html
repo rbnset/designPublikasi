@@ -1,333 +1,1468 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href="./output.css" rel="stylesheet" />
 	<link href="./main.css" rel="stylesheet" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
 		rel="stylesheet" />
-	<!-- CSS -->
+
+	<!-- CSS (kalau tidak dipakai di details boleh dihapus, tapi aman tetap) -->
 	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+	<!-- OPTIONAL: fallback kalau line-clamp belum aktif -->
+	<style>
+		.line-clamp-2 {
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+		}
+
+		/* Reusable: list item seperti di Index (Jurnal Populer) */
+		.item-list-link {
+			border-radius: 22px;
+			outline: none;
+		}
+
+		.item-list-article {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			border-radius: 22px;
+			border: 1px solid #EEF0F7;
+			background: #fff;
+			padding: 12px;
+			transition: transform .3s, box-shadow .3s, border-color .3s;
+		}
+
+		/* match: p-3 sm:p-[14px] */
+		@media (min-width: 640px) {
+			.item-list-article {
+				padding: 14px;
+			}
+		}
+
+		.item-list-link:focus-visible {
+			box-shadow: 0 0 0 2px #FF6B18, 0 0 0 4px #fff;
+			/* ring + offset */
+		}
+
+		.item-list-link:hover .item-list-article {
+			transform: translateY(-1px);
+			box-shadow: 0 6px 16px -14px rgba(0, 0, 0, .35);
+			border-color: #FF6B18;
+			/* efek “ring” versi simple */
+		}
+
+		.item-list-cover {
+			width: 74px;
+			border-radius: 16px;
+			overflow: hidden;
+			background: #F5F6FA;
+			box-shadow: 0 12px 30px -18px rgba(0, 0, 0, 0.6);
+			position: relative;
+			flex-shrink: 0;
+			aspect-ratio: 2/3;
+		}
+
+		@media (min-width: 640px) {
+			.item-list-cover {
+				width: 88px;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			.item-list-cover {
+				width: 104px;
+			}
+		}
+
+		.item-list-cover::before {
+			content: "";
+			position: absolute;
+			inset: 0 auto 0 0;
+			width: 10%;
+			background: linear-gradient(to right, rgba(0, 0, 0, .15), transparent);
+		}
+
+		.item-list-cover::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(to top right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, .12));
+			pointer-events: none;
+		}
+
+		.item-list-title {
+			font-weight: 700;
+			color: #111827;
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		@media (min-width: 640px) {
+			.item-list-title {
+				font-size: 16px;
+				line-height: 24px;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			.item-list-title {
+				font-size: 18px;
+				line-height: 27px;
+			}
+		}
+
+		.item-list-meta {
+			margin-top: 8px;
+			color: #A3A6AE;
+			font-size: 11px;
+			line-height: 16px;
+		}
+
+		@media (min-width: 640px) {
+			.item-list-meta {
+				font-size: 14px;
+				line-height: 21px;
+			}
+		}
+
+		.item-list-cta {
+			color: #6B7280;
+			transition: color .2s;
+		}
+
+		.item-list-link:hover .item-list-cta {
+			color: #FF6B18;
+		}
+
+		.text-justify {
+			text-align: justify;
+			text-justify: inter-word;
+		}
+	</style>
+
+	<style>
+		/* =========================================================
+     UP-TO-DATE SWIPER (Final)
+     ========================================================= */
+
+		/* A) PENGUNCI LAYOUT: memastikan slider mengikuti batas kiri/kanan layout */
+		.upToDateClip {
+			overflow: hidden;
+			border-radius: 24px;
+			/* opsional agar clipping halus */
+		}
+
+		/* wrapper overflow hidden sering dipakai agar slider tidak keluar layout [web:93] */
+
+		/* B) BIAR HOVER RING/SHADOW TIDAK KEPOTONG */
+		.upToDateSwiper,
+		.upToDateSwiper .swiper-wrapper {
+			overflow: visible !important;
+		}
+
+		/* workaround shadow cut-off pada swiper biasanya dengan padding/overflow handling [web:87] */
+
+		/* ruang “aman” supaya hover ring tidak mentok ke clip */
+		.upToDateSwiper {
+			padding: 10px 12px 18px;
+		}
+
+		/* menambah padding membantu shadow terlihat (workaround umum) [web:87] */
+
+		/* C) PAGINATION ORANGE BRAND (CSS variables Swiper) */
+		.upToDateSwiper {
+			--swiper-pagination-color: #ff6b18;
+			--swiper-pagination-bullet-inactive-color: #ff6b18;
+			--swiper-pagination-bullet-inactive-opacity: 0.22;
+			--swiper-pagination-bullet-size: 8px;
+			--swiper-pagination-bullet-horizontal-gap: 6px;
+
+			/* bonus: set warna arrow juga (tetap kita override juga di :after) */
+			--swiper-navigation-color: #ff6b18;
+		}
+
+		/* Swiper pagination/navigation color bisa lewat CSS variables [web:85][web:22] */
+
+		.upToDateSwiper .swiper-pagination {
+			position: relative;
+			margin-top: 32px;
+		}
+
+		/* D) PANAH: ghost, baru solid saat hover/focus */
+		.upToDateSwiper .swiper-button-prev,
+		.upToDateSwiper .swiper-button-next {
+			width: 40px;
+			height: 40px;
+			border-radius: 999px;
+			background: rgba(255, 255, 255, 0.55);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			box-shadow: 0 10px 26px -18px rgba(0, 0, 0, 0.65);
+			opacity: 0.25;
+			transition: opacity 200ms ease, transform 200ms ease, background 200ms ease;
+		}
+
+		.upToDateSwiper:hover .swiper-button-prev,
+		.upToDateSwiper:hover .swiper-button-next,
+		.upToDateSwiper .swiper-button-prev:focus-visible,
+		.upToDateSwiper .swiper-button-next:focus-visible {
+			opacity: 1;
+			background: rgba(255, 255, 255, 0.9);
+			transform: translateY(-1px);
+		}
+
+		.upToDateSwiper .swiper-button-prev:after,
+		.upToDateSwiper .swiper-button-next:after {
+			font-size: 16px;
+			font-weight: 800;
+			color: #ff6b18;
+		}
+
+		.upToDateSwiper .swiper-button-disabled {
+			opacity: 0 !important;
+			visibility: hidden;
+		}
+
+		/* tombol disabled bisa di-hide agar UI bersih [web:36] */
+
+		/* E) SAMAKAN TINGGI JUDUL (3 baris) supaya tinggi card seragam */
+		.upToDateSwiper .card-title {
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			min-height: calc(1.5em * 3);
+		}
+
+		/* F) RANGE DEVICE TENGAH (sekitar 520-639): batasi max-width card supaya tidak kebesaran */
+		@media (min-width: 520px) and (max-width: 639px) {
+			.upToDateSwiper .swiper-slide {
+				max-width: 420px;
+			}
+		}
+
+		/* max-width membantu mencegah elemen melebar berlebihan [web:53] */
+	</style>
 </head>
 
-<body class="font-[Poppins]">
-	<nav id="Navbar" class="max-w-[1130px] mx-auto flex justify-between items-center mt-[30px]">
-		<div class="logo-container flex gap-[30px] items-center">
-			<a href="index.html" class="flex shrink-0">
-				<img src="assets/images/logos/logo.svg" alt="logo" />
-			</a>
-			<div class="h-12 border border-[#E8EBF4]"></div>
-			<form action="searchPage.html"
-				class="w-[450px] flex items-center rounded-full border border-[#E8EBF4] p-[12px_20px] gap-[10px] focus-within:ring-2 focus-within:ring-[#FF6B18] transition-all duration-300">
-				<button type="submit" class="w-5 h-5 flex shrink-0">
-					<img src="assets/images/icons/search-normal.svg" alt="icon" />
+<body class="m-0 font-[Poppins] bg-[#F8F9FC] text-[#0B0B0B]">
+	<!-- CONTAINER UTAMA (ikuti index) -->
+	<div class="max-w-[1130px] mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- HEADER -->
+		<header class="mt-6">
+			<!-- NAVBAR (responsive versi index) -->
+			<nav id="Navbar" class="flex items-center gap-4">
+				<!-- Logo -->
+				<div class="flex items-center gap-4 shrink-0">
+					<a href="index.html" class="flex shrink-0">
+						<img src="assets/images/logos/logo.svg" alt="logo" />
+					</a>
+					<div class="hidden lg:block h-12 border border-[#E8EBF4]"></div>
+				</div>
+
+				<!-- Search desktop -->
+				<form action="searchPage.html"
+					class="hidden lg:flex flex-1 max-w-[520px] items-center rounded-full border border-[#E8EBF4] p-[12px_20px] gap-[10px] focus-within:ring-2 focus-within:ring-[#FF6B18] transition-all duration-300 bg-white">
+					<button type="submit" class="w-5 h-5 flex shrink-0" aria-label="Search">
+						<img src="assets/images/icons/search-normal.svg" alt="icon" />
+					</button>
+					<input type="text"
+						class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#A3A6AE]"
+						placeholder="Search hot trendy news today..." />
+				</form>
+
+				<!-- Actions desktop -->
+				<div class="hidden lg:flex items-center gap-3 shrink-0">
+					<a href="searchPage.html"
+						class="rounded-full px-[18px] py-3 flex items-center justify-center gap-2 font-semibold text-sm transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18] bg-white">Search</a>
+					<a href="#"
+						class="rounded-full px-[18px] py-3 flex items-center justify-center gap-2 font-bold text-sm transition-all duration-300 bg-[#FF6B18] text-white hover:shadow-[0_10px_20px_0_#FF6B1880]">
+						<span class="w-5 h-5 flex shrink-0">
+							<img src="assets/images/icons/favorite-chart.svg" alt="icon" class="w-full h-full" />
+						</span>
+						<span>Subscription</span>
+					</a>
+				</div>
+
+				<!-- Mobile hamburger -->
+				<button id="hamburgerBtn"
+					class="lg:hidden ml-auto w-10 h-10 rounded-full bg-white border border-[#EEF0F7] flex items-center justify-center"
+					aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle menu" type="button">
+					<svg id="iconBurger" class="w-5 h-5 block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2">
+						<path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+					<svg id="iconClose" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2">
+						<path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+					</svg>
 				</button>
-				<input type="text" name="" id=""
-					class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#A3A6AE]"
-					placeholder="Search hot trendy news today..." />
-			</form>
-		</div>
-		<div class="flex items-center gap-3">
-			<a href=""
-				class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Upgrade
-				Pro</a>
-			<a href=""
-				class="rounded-full p-[12px_22px] flex gap-[10px] font-bold transition-all duration-300 bg-[#FF6B18] text-white hover:shadow-[0_10px_20px_0_#FF6B1880]">
-				<div class="w-6 h-6 flex shrink-0">
-					<img src="assets/images/icons/favorite-chart.svg" alt="icon" />
-				</div>
-				<span>Post Ads</span>
-			</a>
-		</div>
-	</nav>
-	<nav id="Category" class="max-w-[1130px] mx-auto flex justify-center items-center gap-4 mt-[30px]">
-		<a href="categoryPage.html"
-			class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-			<div class="w-6 h-6 flex shrink-0">
-				<img src="assets/images/icons/heart.svg" alt="icon" />
-			</div>
-			<span>Health</span>
-		</a>
-		<a href="categoryPage.html"
-			class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-			<div class="w-6 h-6 flex shrink-0">
-				<img src="assets/images/icons/status-up.svg" alt="icon" />
-			</div>
-			<span>Business</span>
-		</a>
-		<a href="categoryPage.html"
-			class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-			<div class="w-6 h-6 flex shrink-0">
-				<img src="assets/images/icons/car.svg" alt="icon" />
-			</div>
-			<span>Automotive</span>
-		</a>
-		<a href="categoryPage.html"
-			class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-			<div class="w-6 h-6 flex shrink-0">
-				<img src="assets/images/icons/global.svg" alt="icon" />
-			</div>
-			<span>Entertainment</span>
-		</a>
-		<a href="categoryPage.html"
-			class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-			<div class="w-6 h-6 flex shrink-0">
-				<img src="assets/images/icons/coffee.svg" alt="icon" />
-			</div>
-			<span>Foods</span>
-		</a>
-		<a href="categoryPage.html"
-			class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-			<div class="w-6 h-6 flex shrink-0">
-				<img src="assets/images/icons/courthouse.svg" alt="icon" />
-			</div>
-			<span>Politic</span>
-		</a>
-		<a href="categoryPage.html"
-			class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
-			<div class="w-6 h-6 flex shrink-0">
-				<img src="assets/images/icons/cup.svg" alt="icon" />
-			</div>
-			<span>Sport</span>
-		</a>
-	</nav>
-	<header class="flex flex-col items-center gap-[50px] mt-[70px]">
-		<div id="Headline" class="max-w-[1130px] mx-auto flex flex-col gap-4 items-center">
-			<p class="w-fit text-[#A3A6AE]">12 Jun, 2024 • Business</p>
-			<h1 id="Title" class="font-bold text-[46px] leading-[60px] text-center two-lines">Peternak Jakarta
-				Menggunakan Bantuan A.I Prexpeliangga</h1>
-			<div class="flex items-center justify-center gap-[70px]">
-				<a id="Author" href="author.html" class="w-fit h-fit">
-					<div class="flex items-center gap-3">
-						<div class="w-10 h-10 rounded-full overflow-hidden">
-							<img src="assets/images/photos/photo3.png" class="object-cover w-full h-full" alt="avatar">
-						</div>
-						<div class="flex flex-col">
-							<p class="font-semibold text-sm leading-[21px]">Rita Putria</p>
-							<p class="text-xs leading-[18px] text-[#A3A6AE]">Sr Programmer</p>
-						</div>
+			</nav>
+
+			<!-- Mobile panel -->
+			<div id="mobileMenu" class="lg:hidden hidden mt-4">
+				<div class="rounded-2xl border border-[#EEF0F7] bg-white p-3 space-y-3">
+					<!-- Search mobile -->
+					<form action="searchPage.html"
+						class="flex items-center rounded-full border border-[#E8EBF4] p-[12px_16px] gap-[10px] focus-within:ring-2 focus-within:ring-[#FF6B18] transition-all duration-300 bg-white">
+						<button type="submit" class="w-5 h-5 flex shrink-0" aria-label="Search">
+							<img src="assets/images/icons/search-normal.svg" alt="icon" />
+						</button>
+						<input type="text"
+							class="appearance-none outline-none w-full font-semibold placeholder:font-normal placeholder:text-[#A3A6AE]"
+							placeholder="Search hot trendy news today..." />
+					</form>
+
+					<!-- Actions mobile -->
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+						<a href="searchPage.html"
+							class="w-full rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300 text-center bg-white">Search</a>
+						<a href="#"
+							class="w-full rounded-xl px-4 py-3 font-bold text-sm bg-[#FF6B18] text-white text-center hover:shadow-[0_10px_20px_0_#FF6B1880] transition-all duration-300">Subscription</a>
 					</div>
-				</a>
-				<div id="Rating" class="flex items-center gap-1">
-					<div class="flex items-center">
-						<div class="w-4 h-4 flex shrink-0">
-							<img src="assets/images/icons/Star 1.svg" alt="star">
-						</div>
-						<div class="w-4 h-4 flex shrink-0">
-							<img src="assets/images/icons/Star 1.svg" alt="star">
-						</div>
-						<div class="w-4 h-4 flex shrink-0">
-							<img src="assets/images/icons/Star 1.svg" alt="star">
-						</div>
-						<div class="w-4 h-4 flex shrink-0">
-							<img src="assets/images/icons/Star 1.svg" alt="star">
-						</div>
-						<div class="w-4 h-4 flex shrink-0">
-							<img src="assets/images/icons/Star 1.svg" alt="star">
-						</div>
+
+					<!-- Quick links (opsional) -->
+					<div class="grid gap-2 pt-1">
+						<a href="index.html"
+							class="rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300">Home</a>
+						<a href="categoryPage.html"
+							class="rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300">Category</a>
+						<a href="author.html"
+							class="rounded-xl px-4 py-3 font-semibold text-sm border border-[#EEF0F7] hover:border-[#FF6B18] transition-colors duration-300">Author</a>
 					</div>
-					<p class="font-semibold text-xs leading-[18px]">(12,490)</p>
 				</div>
 			</div>
-		</div>
-		<div class="w-full h-[500px] flex shrink-0 overflow-hidden">
-			<img src="assets/images/thumbnails/cover.png" class="object-cover w-full h-full" alt="cover thumbnail">
-		</div>
-	</header>
-	<section id="Article-container" class="max-w-[1130px] mx-auto flex gap-20 mt-[50px]">
-		<article id="Content-wrapper">
-			<p>I‘ll be real. I held out on AI as long as I could. I was convinced it was going to be humanity’s downfall
-				from the first time my phone had the audacity to tell me I actually meant to say, “I have no ducking
-				idea” — but desperate times call for desperate.</p>
-			<p>Want to teach a course about real estate investing? Fantastic, but make sure you have experience as a
-				real estate investor. Want to teach hair stylists how to successfully open their own salons? Do it. But
-				you should have opened your own salon first.</p>
-			<h3>So you should have known</h3>
-			<p>I launched my first digital course without any prior experience in the niche I was teaching about. In my
-				hurry to <ins>establish myself as an expert</ins>, I overlooked the importance of having hands-on
-				experience. Can you guess how this turned out? Yep, my first course was a total flop:</p>
-			<ul>
-				<li>
-					<p><strong>Credibility:</strong> To build trust with your future students, you need to show them
-						that you're the real deal. Having actual experience in the subject matter is the first step to
-						gaining their confidence.</p>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<p><strong>Effective Teaching:</strong> When you have demonstrated experience, your teaching becomes
-						more powerful. You can relate to the challenges your students might face and provide practical,
-						real-world solutions for them.</p>
-				</li>
-			</ul>
-			<figure>
-				<img src="assets/images/thumbnails/article1.png" alt="image">
-				<figcaption></figcaption>
-			</figure>
-			<h3>What SEO Experts Recommend</h3>
-			<p>For marketers, this means that previously high-ranking content may be outranked by a rich Reddit or Quora
-				thread on the same topic. As a result, it’s becoming increasingly important for businesses to establish
-				a presence on these community-aggregated sites to stay connected to users.</p>
-			<ul>
-				<li>
-					<p><strong>Credibility:</strong> To build trust with your future students, you need to show them
-						that you're the real deal. Having actual experience in the subject matter is the first step to
-						gaining their confidence.</p>
-				</li>
-			</ul>
-			<p>Published on both offline and online marketing materials, these claims boasted investment strategies that
-				were powered by ‘expert AI-driven forecasts’ and that would ‘turn your data into an unfair investing
-				advantage.’ One of them even claimed to be ‘the first regulated AI financial advisor.’</p>
-		</article>
-		<div class="side-bar flex flex-col w-[300px] shrink-0 gap-10">
-			<div class="ads flex flex-col gap-3 w-full">
-				<a href="">
-					<img src="assets/images/iklans/banner.png" class="object-contain w-full h-full" alt="ads" />
+
+			<!-- CATEGORY BAR (desktop) -->
+			<nav id="Category"
+				class="hidden lg:flex mt-6 flex-wrap items-center gap-2 sm:gap-3 md:gap-4 justify-center">
+				<a href="categoryPage.html"
+					class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7] hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+					<span class="w-5 h-5 flex shrink-0">
+						<img src="assets/images/icons/heart.svg" alt="icon" class="w-full h-full" />
+					</span>
+					<span>Health</span>
 				</a>
-				<p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
-					Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
-							src="assets/images/icons/message-question.svg" alt="icon" /></a>
-				</p>
-			</div>
-			<div id="More-from-author" class="flex flex-col gap-4">
-				<p class="font-bold">More From Author</p>
-				<a href="" class="card-from-author">
-					<div
-						class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[14px] flex gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
-						<div class="w-[70px] h-[70px] flex shrink-0 overflow-hidden rounded-2xl">
-							<img src="assets/images/thumbnails/th-demonstration.png" class="object-cover w-full h-full"
-								alt="thumbnail">
+
+				<a href="categoryPage.html"
+					class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7] hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+					<span class="w-5 h-5 flex shrink-0">
+						<img src="assets/images/icons/status-up.svg" alt="icon" class="w-full h-full" />
+					</span>
+					<span>Business</span>
+				</a>
+
+				<a href="categoryPage.html"
+					class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7] hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+					<span class="w-5 h-5 flex shrink-0">
+						<img src="assets/images/icons/car.svg" alt="icon" class="w-full h-full" />
+					</span>
+					<span>Automotive</span>
+				</a>
+
+				<a href="categoryPage.html"
+					class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7] hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+					<span class="w-5 h-5 flex shrink-0">
+						<img src="assets/images/icons/global.svg" alt="icon" class="w-full h-full" />
+					</span>
+					<span>Entertainment</span>
+				</a>
+
+				<a href="categoryPage.html"
+					class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7] hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+					<span class="w-5 h-5 flex shrink-0">
+						<img src="assets/images/icons/coffee.svg" alt="icon" class="w-full h-full" />
+					</span>
+					<span>Foods</span>
+				</a>
+
+				<a href="categoryPage.html"
+					class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7] hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+					<span class="w-5 h-5 flex shrink-0">
+						<img src="assets/images/icons/courthouse.svg" alt="icon" class="w-full h-full" />
+					</span>
+					<span>Politic</span>
+				</a>
+
+				<a href="categoryPage.html"
+					class="rounded-full px-[18px] py-2.5 flex items-center gap-2 font-semibold text-sm bg-white border border-[#EEF0F7] hover:border-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18]/20 transition-colors duration-300">
+					<span class="w-5 h-5 flex shrink-0">
+						<img src="assets/images/icons/cup.svg" alt="icon" class="w-full h-full" />
+					</span>
+					<span>Sport</span>
+				</a>
+			</nav>
+		</header>
+
+		<!-- HEADLINE -->
+		<section class="flex flex-col items-center gap-8 sm:gap-10 mt-10 sm:mt-14 lg:mt-[70px]">
+			<div id="Headline" class="w-full flex flex-col gap-4 items-center">
+				<p class="w-fit text-[#A3A6AE] text-sm sm:text-base">12 Jun, 2024 • Business</p>
+
+				<h1 id="Title"
+					class="font-bold text-[28px] leading-[38px] sm:text-[38px] sm:leading-[50px] lg:text-[46px] lg:leading-[60px] text-center two-lines">
+					Peternak Jakarta Menggunakan Bantuan A.I Prexpeliangga
+				</h1>
+
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10 lg:gap-[70px]">
+					<a id="Author" href="author.html" class="w-fit h-fit">
+						<div class="flex items-center gap-3">
+							<div class="w-10 h-10 rounded-full overflow-hidden">
+								<img src="assets/images/photos/photo3.png" class="object-cover w-full h-full"
+									alt="avatar" />
+							</div>
+							<div class="flex flex-col">
+								<p class="font-semibold text-sm leading-[21px]">Rita Putria</p>
+								<p class="text-xs leading-[18px] text-[#A3A6AE]">Sr Programmer</p>
+							</div>
 						</div>
-						<div class="flex flex-col gap-[6px]">
-							<p class="line-clamp-2 font-bold">Gaya pakaian pernikahan artis Lorem, ipsum dolor.</p>
-							<p class="text-xs leading-[18px] text-[#A3A6AE]">12 Jun, 2024 • Entertainment</p>
+					</a>
+
+					<div id="Rating" class="flex items-center gap-1">
+						<div class="flex items-center">
+							<div class="w-4 h-4 flex shrink-0">
+								<img src="assets/images/icons/Star 1.svg" alt="star" />
+							</div>
+							<div class="w-4 h-4 flex shrink-0">
+								<img src="assets/images/icons/Star 1.svg" alt="star" />
+							</div>
+							<div class="w-4 h-4 flex shrink-0">
+								<img src="assets/images/icons/Star 1.svg" alt="star" />
+							</div>
+							<div class="w-4 h-4 flex shrink-0">
+								<img src="assets/images/icons/Star 1.svg" alt="star" />
+							</div>
+							<div class="w-4 h-4 flex shrink-0">
+								<img src="assets/images/icons/Star 1.svg" alt="star" />
+							</div>
 						</div>
+						<p class="font-semibold text-xs leading-[18px]">(12,490)</p>
 					</div>
-				</a>
-				<a href="" class="card-from-author">
-					<div
-						class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[14px] flex gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
-						<div class="w-[70px] h-[70px] flex shrink-0 overflow-hidden rounded-2xl">
-							<img src="assets/images/thumbnails/th-cyclist.png" class="object-cover w-full h-full"
-								alt="thumbnail">
-						</div>
-						<div class="flex flex-col gap-[6px]">
-							<p class="line-clamp-2 font-bold">Gaya pakaian pernikahan artis Lorem, ipsum dolor.</p>
-							<p class="text-xs leading-[18px] text-[#A3A6AE]">12 Jun, 2024 • Entertainment</p>
-						</div>
-					</div>
-				</a>
-				<a href="" class="card-from-author">
-					<div
-						class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[14px] flex gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
-						<div class="w-[70px] h-[70px] flex shrink-0 overflow-hidden rounded-2xl">
-							<img src="assets/images/thumbnails/model.png" class="object-cover w-full h-full"
-								alt="thumbnail">
-						</div>
-						<div class="flex flex-col gap-[6px]">
-							<p class="line-clamp-2 font-bold">Gaya pakaian pernikahan artis Lorem, ipsum dolor.</p>
-							<p class="text-xs leading-[18px] text-[#A3A6AE]">12 Jun, 2024 • Entertainment</p>
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="ads flex flex-col gap-3 w-full">
-				<a href="">
-					<img src="assets/images/iklans/banner1.png" class="object-contain w-full h-full" alt="ads" />
-				</a>
-				<p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
-					Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
-							src="assets/images/icons/message-question.svg" alt="icon" /></a>
-				</p>
-			</div>
-		</div>
-	</section>
-	<section id="Advertisement" class="max-w-[1130px] mx-auto flex justify-center mt-[70px]">
-		<div class="flex flex-col gap-3 shrink-0 w-fit">
-			<a href="#">
-				<div class="w-[900px] h-[120px] flex shrink-0 border border-[#EEF0F7] rounded-2xl overflow-hidden">
-					<img src="assets/images/iklans/bannerWide.png" class="object-cover w-full h-full" alt="ads" />
 				</div>
-			</a>
-			<p class="font-medium text-sm leading-[21px] text-[#A3A6AE] flex gap-1">
-				Our Advertisement <a href="#" class="w-[18px] h-[18px]"><img
-						src="assets/images/icons/message-question.svg" alt="icon" /></a>
-			</p>
-		</div>
-	</section>
-	<section id="Up-to-date" class="w-full flex justify-center mt-[70px] py-[50px] bg-[#F9F9FC]">
-		<div class="max-w-[1130px] mx-auto flex flex-col gap-[30px]">
+			</div>
+		</section>
+
+		<!-- ARTICLE + SIDEBAR (responsive) -->
+		<section id="Article-container"
+			class="mt-10 sm:mt-12 lg:mt-[50px] grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 lg:gap-20">
+			<article id="Content-wrapper" class="min-w-0">
+				<div class="rounded-[22px] bg-white ring-1 ring-[#EEF0F7] p-5 sm:p-6 lg:p-7">
+					<h3 class="font-bold text-lg sm:text-xl mb-3">Abstract</h3>
+					<!-- ABSTRACT -->
+
+					<!-- Text: rata kanan-kiri -->
+					<p class="text-[#111827] leading-relaxed text-justify">
+						I launched my first digital course without any prior experience in the niche I was teaching
+						about. In my
+						hurry to <ins>establish myself as an expert</ins>, I overlooked the importance of having
+						hands-on
+						experience. Can you guess how this turned out? Yep, my first course was a total flop I
+						overlooked the importance of having hands-on experience. Can you guess how this turned out?
+						Yep, my first course
+						was a total flop I overlooked the importance of having hands-on experience. Can you guess
+						how this turned out?
+						Yep, my first course was a total flop. I launched my first digital course without any prior
+						experience in the niche I was teaching
+						about. In my
+						hurry to <ins>establish myself as an expert</ins>, I overlooked the importance of having
+						hands-on
+						experience. Can you guess how this turned out? Yep, my first course was a total flop I
+						overlooked the importance of having hands-on experience. Can you guess how this turned out?
+						Yep, my first course
+						was a total flop I overlooked the importance of having hands-on experience. Can you guess
+						how this turned out?
+						Yep, my first course was a total flop.
+					</p>
+
+					<!-- KEYWORDS -->
+					<div class="flex flex-wrap items-center gap-2 pt-1">
+						<span class="text-sm font-semibold text-[#111827] mr-1">Keywords:</span>
+
+						<a href="categoryPage.html"
+							class="rounded-full px-3 py-2 bg-[#FFECE1] font-bold text-[11px] leading-[16px] text-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18] transition">
+							Policy
+						</a>
+						<a href="categoryPage.html"
+							class="rounded-full px-3 py-2 bg-[#FFECE1] font-bold text-[11px] leading-[16px] text-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18] transition">
+							Urban Crime
+						</a>
+						<a href="categoryPage.html"
+							class="rounded-full px-3 py-2 bg-[#FFECE1] font-bold text-[11px] leading-[16px] text-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18] transition">
+							Prevention Model
+						</a>
+						<a href="categoryPage.html"
+							class="rounded-full px-3 py-2 bg-[#FFECE1] font-bold text-[11px] leading-[16px] text-[#FF6B18] hover:ring-2 hover:ring-[#FF6B18] transition">
+							Boyolali
+						</a>
+
+						<!-- AUTHORS (dibikin rapi mengikuti section-card index) -->
+						<div id="authors-publication" class="flex flex-col gap-6 mt-8">
+							<div class="flex flex-col text-start gap-3 items-start">
+								<p
+									class="badge-orange rounded-full p-[8px_18px] bg-[#FFECE1] font-bold text-sm leading-[21px] text-[#FF6B18] w-fit">
+									AUTHORS
+								</p>
+							</div>
+
+							<!-- AUTHORS GRID (final) -->
+							<div
+								class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5 lg:gap-4">
+								<!-- Card 1 -->
+								<a href="author.html" class="block h-full">
+									<div class="h-full min-h-[220px] rounded-[20px] border border-[#EEF0F7] bg-white
+               p-[22px_18px] sm:p-[24px_18px]
+               flex flex-col items-center justify-between
+               hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
+										<!-- atas -->
+										<div class="flex flex-col items-center gap-4">
+											<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
+												<img src="assets/images/photos/photo.png"
+													class="object-cover w-full h-full" alt="avatar" />
+											</div>
+
+											<!-- Nama: max 2 baris + tinggi dikunci -->
+											<p
+												class="font-semibold text-center leading-[22px] line-clamp-2 min-h-[44px] text-[#FF6B18]">
+												Junior Parrito Nama Sangat Panjang Sekali Banget
+											</p>
+										</div>
+
+										<!-- bawah -->
+										<p class="text-sm leading-[21px] text-[#A3A6AE] mt-3 text-center">
+											34 Publication
+										</p>
+									</div>
+								</a>
+
+								<!-- Card 2 -->
+								<a href="author.html" class="block h-full">
+									<div class="h-full min-h-[220px] rounded-[20px] border border-[#EEF0F7] bg-white
+               p-[22px_18px] sm:p-[24px_18px]
+               flex flex-col items-center justify-between
+               hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
+										<div class="flex flex-col items-center gap-4">
+											<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
+												<img src="assets/images/photos/photo1.png"
+													class="object-cover w-full h-full" alt="avatar" />
+											</div>
+											<p
+												class="font-semibold text-center leading-[22px] line-clamp-2 min-h-[44px] text-[#FF6B18]">
+												Sabrina Juli
+											</p>
+										</div>
+										<p class="text-sm leading-[21px] text-[#A3A6AE] mt-3 text-center">31 Publication
+										</p>
+									</div>
+								</a>
+
+								<!-- Card 3 -->
+								<a href="author.html" class="block h-full">
+									<div class="h-full min-h-[220px] rounded-[20px] border border-[#EEF0F7] bg-white
+               p-[22px_18px] sm:p-[24px_18px]
+               flex flex-col items-center justify-between
+               hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
+										<div class="flex flex-col items-center gap-4">
+											<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
+												<img src="assets/images/photos/photo2.png"
+													class="object-cover w-full h-full" alt="avatar" />
+											</div>
+											<p
+												class="font-semibold text-center leading-[22px] line-clamp-2 min-h-[44px] text-[#FF6B18]">
+												Ijan Malawi
+											</p>
+										</div>
+										<p class="text-sm leading-[21px] text-[#A3A6AE] mt-3 text-center">44 Publication
+										</p>
+									</div>
+								</a>
+
+								<!-- Card 4 -->
+								<a href="author.html" class="block h-full">
+									<div class="h-full min-h-[220px] rounded-[20px] border border-[#EEF0F7] bg-white
+               p-[22px_18px] sm:p-[24px_18px]
+               flex flex-col items-center justify-between
+               hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
+										<div class="flex flex-col items-center gap-4">
+											<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
+												<img src="assets/images/photos/photo3.png"
+													class="object-cover w-full h-full" alt="avatar" />
+											</div>
+											<p
+												class="font-semibold text-center leading-[22px] line-clamp-2 min-h-[44px] text-[#FF6B18]">
+												Rita Putria
+											</p>
+										</div>
+										<p class="text-sm leading-[21px] text-[#A3A6AE] mt-3 text-center">18 Publication
+										</p>
+									</div>
+								</a>
+
+								<!-- Card 5 -->
+								<a href="author.html" class="block h-full">
+									<div class="h-full min-h-[220px] rounded-[20px] border border-[#EEF0F7] bg-white
+               p-[22px_18px] sm:p-[24px_18px]
+               flex flex-col items-center justify-between
+               hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
+										<div class="flex flex-col items-center gap-4">
+											<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
+												<img src="assets/images/photos/photo4.png"
+													class="object-cover w-full h-full" alt="avatar" />
+											</div>
+											<p
+												class="font-semibold text-center leading-[22px] line-clamp-2 min-h-[44px] text-[#FF6B18]">
+												Shayna Xin
+											</p>
+										</div>
+										<p class="text-sm leading-[21px] text-[#A3A6AE] mt-3 text-center">92 Publication
+										</p>
+									</div>
+								</a>
+
+								<!-- Card 6 -->
+								<a href="author.html" class="block h-full">
+									<div class="h-full min-h-[220px] rounded-[20px] border border-[#EEF0F7] bg-white
+               p-[22px_18px] sm:p-[24px_18px]
+               flex flex-col items-center justify-between
+               hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
+										<div class="flex flex-col items-center gap-4">
+											<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
+												<img src="assets/images/photos/photo5.png"
+													class="object-cover w-full h-full" alt="avatar" />
+											</div>
+											<p
+												class="font-semibold text-center leading-[22px] line-clamp-2 min-h-[44px] text-[#FF6B18]">
+												Dhi Pakao
+											</p>
+										</div>
+										<p class="text-sm leading-[21px] text-[#A3A6AE] mt-3 text-center">23 Publication
+										</p>
+									</div>
+								</a>
+							</div>
+						</div>
+
+
+
+					</div>
+			</article>
+
+			<!-- SIDEBAR -->
+			<aside class="side-bar flex flex-col gap-6 lg:gap-10">
+				<div class="ads flex flex-col gap-3 w-full">
+					<!-- Cover + overlay actions (mudah dikenali) -->
+					<div class="rounded-[22px] overflow-hidden ring-1 ring-[#EEF0F7] bg-white">
+						<div class="relative">
+							<img src="assets/images/journal/cover-jurnal6.jpg"
+								class="object-contain w-full h-full bg-[#F4F6FB]" alt="Cover publication"
+								loading="lazy" />
+
+							<!-- Overlay gradient biar tombol kebaca -->
+							<div
+								class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 via-black/15 to-transparent">
+							</div>
+
+							<!-- Actions -->
+							<div class="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+								<div class="grid grid-cols-2 gap-2">
+									<!-- BACA (primary) -->
+									<a href="details.html" class="rounded-full px-4 py-3 flex items-center justify-center gap-2
+                   font-bold text-sm transition-all duration-300
+                   bg-[#FF6B18] text-white hover:shadow-[0_10px_20px_0_rgba(255,107,24,0.5)]
+                   focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]
+                   focus-visible:ring-offset-2 focus-visible:ring-offset-black/0" aria-label="Baca publication">
+										<img src="assets/images/icons/book.svg" class="w-5 h-5" alt="" />
+										Baca
+									</a>
+
+									<!-- DOWNLOAD (secondary) -->
+									<a href="assets/files/publication.pdf" download class="rounded-full px-4 py-3 flex items-center justify-center gap-2
+                   font-semibold text-sm transition-all duration-300
+                   bg-white/95 text-[#111827] ring-1 ring-white/35 backdrop-blur
+                   hover:ring-2 hover:ring-[#FF6B18]
+                   focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]
+                   focus-visible:ring-offset-2 focus-visible:ring-offset-black/0"
+										aria-label="Download publication (PDF)">
+										<img src="assets/images/icons/import.svg" class="w-5 h-5" alt="" />
+										Download
+									</a>
+								</div>
+
+								<!-- Hint kecil -->
+								<p class="mt-2 text-xs leading-[18px] text-white/90">
+									PDF • 4.2 MB
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Label + info (lebih jelas dari icon question) -->
+					<!-- Label + info -->
+					<div class="flex items-start justify-between gap-3">
+						<div class="min-w-0">
+							<p class="font-medium text-sm leading-[21px] text-[#A3A6AE]">
+								Cover Publication <span class="text-[#A3A6AE]/80">(Preview)</span>
+							</p>
+
+							<!-- Muncul hanya jika downloads >= 50 -->
+							<p id="dlMeta" class="mt-1 hidden text-xs leading-[18px] text-[#A3A6AE]"
+								data-downloads="128" data-filetype="PDF">
+								<!-- diisi oleh JS -->
+							</p>
+						</div>
+
+						<a href="#" class="text-sm font-semibold text-[#FF6B18] hover:underline shrink-0"
+							aria-label="Info tentang cover dan file">
+							Info
+						</a>
+					</div>
+
+				</div>
+
+
+				<div id="More-from-author" class="flex flex-col gap-4">
+					<p class="font-bold">Publication Relevan</p>
+
+					<a href="details.html" class="group block item-list-link"
+						aria-label="Buka detail: Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan">
+						<article class="item-list-article">
+							<div class="item-list-cover">
+								<img src="assets/images/journal/cover-jurnal6.jpg"
+									alt="Cover jurnal: Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan"
+									class="h-full w-full object-cover" loading="lazy" />
+							</div>
+
+							<div class="min-w-0 flex-1 self-stretch flex flex-col">
+								<h3 class="item-list-title">
+									<span class="line-clamp-3 sm:line-clamp-3 md:line-clamp-4 lg:line-clamp-3">
+										Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan di
+										Boyolali Jawa...
+									</span>
+								</h3>
+
+								<p class="item-list-meta">12 Jun, 2024</p>
+
+								<div class="mt-2 flex items-center justify-between gap-3">
+									<div class="flex items-center -space-x-2 shrink-0">
+										<img src="assets/images/photos/photo.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 1"
+											loading="lazy">
+										<img src="assets/images/photos/photo1.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 2"
+											loading="lazy">
+										<img src="assets/images/photos/photo2.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 3"
+											loading="lazy">
+										<span
+											class="h-6 w-6 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[10px] font-bold ring-2 ring-white">+5</span>
+									</div>
+
+									<span class="item-list-cta inline-flex items-center gap-2 text-[11px] sm:text-sm">
+										Baca detail
+										<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+											<path fill-rule="evenodd"
+												d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+												clip-rule="evenodd" />
+										</svg>
+									</span>
+								</div>
+							</div>
+						</article>
+					</a>
+
+					<a href="details.html" class="group block item-list-link"
+						aria-label="Buka detail: Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan">
+						<article class="item-list-article">
+							<div class="item-list-cover">
+								<img src="assets/images/journal/cover-jurnal6.jpg"
+									alt="Cover jurnal: Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan"
+									class="h-full w-full object-cover" loading="lazy" />
+							</div>
+
+							<div class="min-w-0 flex-1 self-stretch flex flex-col">
+								<h3 class="item-list-title">
+									<span class="line-clamp-3 sm:line-clamp-3 md:line-clamp-4 lg:line-clamp-3">
+										Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan di
+										Boyolali Jawa...
+									</span>
+								</h3>
+
+								<p class="item-list-meta">12 Jun, 2024</p>
+
+								<div class="mt-2 flex items-center justify-between gap-3">
+									<div class="flex items-center -space-x-2 shrink-0">
+										<img src="assets/images/photos/photo.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 1"
+											loading="lazy">
+										<img src="assets/images/photos/photo1.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 2"
+											loading="lazy">
+										<img src="assets/images/photos/photo2.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 3"
+											loading="lazy">
+										<span
+											class="h-6 w-6 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[10px] font-bold ring-2 ring-white">+5</span>
+									</div>
+
+									<span class="item-list-cta inline-flex items-center gap-2 text-[11px] sm:text-sm">
+										Baca detail
+										<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+											<path fill-rule="evenodd"
+												d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+												clip-rule="evenodd" />
+										</svg>
+									</span>
+								</div>
+							</div>
+						</article>
+					</a>
+
+					<a href="details.html" class="group block item-list-link"
+						aria-label="Buka detail: Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan">
+						<article class="item-list-article">
+							<div class="item-list-cover">
+								<img src="assets/images/journal/cover-jurnal6.jpg"
+									alt="Cover jurnal: Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan"
+									class="h-full w-full object-cover" loading="lazy" />
+							</div>
+
+							<div class="min-w-0 flex-1 self-stretch flex flex-col">
+								<h3 class="item-list-title">
+									<span class="line-clamp-3 sm:line-clamp-3 md:line-clamp-4 lg:line-clamp-3">
+										Kejahatan di Wilayah Perkotaan dan Model Integratif Pencegahan Kejahatan di
+										Boyolali Jawa...
+									</span>
+								</h3>
+
+								<p class="item-list-meta">12 Jun, 2024</p>
+
+								<div class="mt-2 flex items-center justify-between gap-3">
+									<div class="flex items-center -space-x-2 shrink-0">
+										<img src="assets/images/photos/photo.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 1"
+											loading="lazy">
+										<img src="assets/images/photos/photo1.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 2"
+											loading="lazy">
+										<img src="assets/images/photos/photo2.png"
+											class="h-6 w-6 rounded-full object-cover ring-2 ring-white" alt="Author 3"
+											loading="lazy">
+										<span
+											class="h-6 w-6 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[10px] font-bold ring-2 ring-white">+5</span>
+									</div>
+
+									<span class="item-list-cta inline-flex items-center gap-2 text-[11px] sm:text-sm">
+										Baca detail
+										<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+											<path fill-rule="evenodd"
+												d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+												clip-rule="evenodd" />
+										</svg>
+									</span>
+								</div>
+							</div>
+						</article>
+					</a>
+
+				</div>
+			</aside>
+
+
+		</section>
+	</div>
+
+	<!-- UP-TO-DATE (dibuat full width seperti index, tapi konten tetap ngikut container) -->
+	<section id="Up-to-date" class="w-full flex justify-center mt-12 sm:mt-16 lg:mt-[70px] py-[50px] bg-[#F9F9FC]">
+		<div class="max-w-[1130px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-[30px] w-full">
 			<div class="flex justify-between items-center">
-				<h2 class="font-bold text-[26px] leading-[39px]">
+				<h2
+					class="font-bold text-[18px] leading-[26px] sm:text-[22px] sm:leading-[32px] lg:text-[26px] lg:leading-[39px]">
 					Other News You <br />
 					Might Be Interested
 				</h2>
 			</div>
-			<div class="grid grid-cols-3 gap-[30px]">
-				<a href="details.html" class="card-news">
-					<div
-						class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[26px_20px] flex flex-col gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300 bg-white">
-						<div
-							class="thumbnail-container w-full h-[200px] rounded-[20px] flex shrink-0 overflow-hidden relative">
-							<p
-								class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px]">
-								SPORT</p>
-							<img src="assets/images/thumbnails/th-cyclist.png" class="object-cover w-full h-full"
-								alt="thumbnail" />
+
+			<div class="-mx-4 overflow-hidden">
+				<div class="upToDateClip">
+					<!-- SWIPER -->
+					<div class="swiper upToDateSwiper w-full px-4">
+						<div class="swiper-wrapper">
+							<!-- SLIDE 1 -->
+							<div class="swiper-slide h-auto">
+								<a href="details.html" class="group block h-full rounded-[22px]
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F6FB]">
+									<article class="h-full rounded-[22px] bg-white ring-1 ring-[#EEF0F7]
+                  p-4 sm:p-4 md:p-5
+                  flex flex-col gap-3
+                  transition duration-300
+                  hover:-translate-y-[1px] hover:shadow-sm hover:ring-2 hover:ring-[#FF6B18]">
+
+										<!-- COVER -->
+										<div class="relative">
+											<div class="relative aspect-[2/3] w-full overflow-hidden rounded-[20px]
+                      bg-[#F4F6FB] ring-1 ring-[#EEF0F7]
+                      shadow-[0_18px_40px_-26px_rgba(0,0,0,0.65)]">
+												<div
+													class="absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-black/16 to-transparent">
+												</div>
+												<div
+													class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-white/15">
+												</div>
+
+												<p class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10
+                        rounded-full bg-white/95 backdrop-blur
+                        px-3 py-2 sm:px-4 sm:py-2
+                        font-bold text-[10px] leading-[14px] sm:text-xs sm:leading-[18px]
+                        ring-1 ring-black/5">
+													Analisis Kebijakan
+												</p>
+
+												<img src="assets/images/journal/cover-jurnal1.jpg"
+													class="h-full w-full object-cover" alt="Cover jurnal"
+													loading="lazy" />
+											</div>
+										</div>
+
+										<!-- INFO -->
+										<div class="flex flex-col gap-2 min-w-0 flex-1">
+											<h3
+												class="font-bold text-sm leading-[20px] sm:text-base sm:leading-[24px] md:text-lg md:leading-[27px] text-[#111827]">
+												<span class="card-title">
+													Judul publikasi maksimal 3 baris agar tinggi card seragam
+												</span>
+											</h3>
+
+											<p
+												class="text-[11px] leading-[16px] sm:text-sm sm:leading-[21px] text-[#A3A6AE]">
+												12 Desember 2025 <span class="mx-1">•</span> Ditinjau editorial
+											</p>
+
+											<div class="mt-auto flex items-center justify-between gap-3">
+												<!-- Avatar authors -->
+												<div class="flex items-center -space-x-2">
+													<img src="assets/images/photos/photo.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 1" loading="lazy">
+													<img src="assets/images/photos/photo1.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 2" loading="lazy">
+													<img src="assets/images/photos/photo2.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 3" loading="lazy">
+													<span
+														class="h-7 w-7 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[11px] font-bold ring-2 ring-white">+5</span>
+												</div>
+
+												<!-- CTA -->
+												<span
+													class="inline-flex items-center gap-2 text-[11px] sm:text-sm text-[#6B7280] group-hover:text-[#FF6B18] transition">
+													Baca detail
+													<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+														<path fill-rule="evenodd"
+															d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+															clip-rule="evenodd" />
+													</svg>
+												</span>
+											</div>
+										</div>
+
+									</article>
+								</a>
+							</div>
+							<!-- Tambah slide lainnya... -->
+							<!-- SLIDE 1 -->
+							<div class="swiper-slide h-auto">
+								<a href="details.html" class="group block h-full rounded-[22px]
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F6FB]">
+									<article class="h-full rounded-[22px] bg-white ring-1 ring-[#EEF0F7]
+                  p-4 sm:p-4 md:p-5
+                  flex flex-col gap-3
+                  transition duration-300
+                  hover:-translate-y-[1px] hover:shadow-sm hover:ring-2 hover:ring-[#FF6B18]">
+
+										<!-- COVER -->
+										<div class="relative">
+											<div class="relative aspect-[2/3] w-full overflow-hidden rounded-[20px]
+                      bg-[#F4F6FB] ring-1 ring-[#EEF0F7]
+                      shadow-[0_18px_40px_-26px_rgba(0,0,0,0.65)]">
+												<div
+													class="absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-black/16 to-transparent">
+												</div>
+												<div
+													class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-white/15">
+												</div>
+
+												<p class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10
+                        rounded-full bg-white/95 backdrop-blur
+                        px-3 py-2 sm:px-4 sm:py-2
+                        font-bold text-[10px] leading-[14px] sm:text-xs sm:leading-[18px]
+                        ring-1 ring-black/5">
+													Analisis Kebijakan
+												</p>
+
+												<img src="assets/images/journal/cover-jurnal2.jpg"
+													class="h-full w-full object-cover" alt="Cover jurnal"
+													loading="lazy" />
+											</div>
+										</div>
+
+										<!-- INFO -->
+										<div class="flex flex-col gap-2 min-w-0 flex-1">
+											<h3
+												class="font-bold text-sm leading-[20px] sm:text-base sm:leading-[24px] md:text-lg md:leading-[27px] text-[#111827]">
+												<span class="card-title">
+													Judul publikasi maksimal 3 baris agar tinggi card seragam
+												</span>
+											</h3>
+
+											<p
+												class="text-[11px] leading-[16px] sm:text-sm sm:leading-[21px] text-[#A3A6AE]">
+												12 Desember 2025 <span class="mx-1">•</span> Ditinjau editorial
+											</p>
+
+											<div class="mt-auto flex items-center justify-between gap-3">
+												<!-- Avatar authors -->
+												<div class="flex items-center -space-x-2">
+													<img src="assets/images/photos/photo.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 1" loading="lazy">
+													<img src="assets/images/photos/photo1.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 2" loading="lazy">
+													<img src="assets/images/photos/photo2.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 3" loading="lazy">
+													<span
+														class="h-7 w-7 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[11px] font-bold ring-2 ring-white">+5</span>
+												</div>
+
+												<!-- CTA -->
+												<span
+													class="inline-flex items-center gap-2 text-[11px] sm:text-sm text-[#6B7280] group-hover:text-[#FF6B18] transition">
+													Baca detail
+													<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+														<path fill-rule="evenodd"
+															d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+															clip-rule="evenodd" />
+													</svg>
+												</span>
+											</div>
+										</div>
+
+									</article>
+								</a>
+							</div>
+
+							<!-- SLIDE 1 -->
+							<div class="swiper-slide h-auto">
+								<a href="details.html" class="group block h-full rounded-[22px]
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F6FB]">
+									<article class="h-full rounded-[22px] bg-white ring-1 ring-[#EEF0F7]
+                  p-4 sm:p-4 md:p-5
+                  flex flex-col gap-3
+                  transition duration-300
+                  hover:-translate-y-[1px] hover:shadow-sm hover:ring-2 hover:ring-[#FF6B18]">
+
+										<!-- COVER -->
+										<div class="relative">
+											<div class="relative aspect-[2/3] w-full overflow-hidden rounded-[20px]
+                      bg-[#F4F6FB] ring-1 ring-[#EEF0F7]
+                      shadow-[0_18px_40px_-26px_rgba(0,0,0,0.65)]">
+												<div
+													class="absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-black/16 to-transparent">
+												</div>
+												<div
+													class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-white/15">
+												</div>
+
+												<p class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10
+                        rounded-full bg-white/95 backdrop-blur
+                        px-3 py-2 sm:px-4 sm:py-2
+                        font-bold text-[10px] leading-[14px] sm:text-xs sm:leading-[18px]
+                        ring-1 ring-black/5">
+													Analisis Kebijakan
+												</p>
+
+												<img src="assets/images/journal/cover-jurnal6.jpg"
+													class="h-full w-full object-cover" alt="Cover jurnal"
+													loading="lazy" />
+											</div>
+										</div>
+
+										<!-- INFO -->
+										<div class="flex flex-col gap-2 min-w-0 flex-1">
+											<h3
+												class="font-bold text-sm leading-[20px] sm:text-base sm:leading-[24px] md:text-lg md:leading-[27px] text-[#111827]">
+												<span class="card-title">
+													Judul publikasi maksimal 3 baris agar tinggi card seragam
+												</span>
+											</h3>
+
+											<p
+												class="text-[11px] leading-[16px] sm:text-sm sm:leading-[21px] text-[#A3A6AE]">
+												12 Desember 2025 <span class="mx-1">•</span> Ditinjau editorial
+											</p>
+
+											<div class="mt-auto flex items-center justify-between gap-3">
+												<!-- Avatar authors -->
+												<div class="flex items-center -space-x-2">
+													<img src="assets/images/photos/photo.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 1" loading="lazy">
+													<img src="assets/images/photos/photo1.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 2" loading="lazy">
+													<img src="assets/images/photos/photo2.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 3" loading="lazy">
+													<span
+														class="h-7 w-7 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[11px] font-bold ring-2 ring-white">+5</span>
+												</div>
+
+												<!-- CTA -->
+												<span
+													class="inline-flex items-center gap-2 text-[11px] sm:text-sm text-[#6B7280] group-hover:text-[#FF6B18] transition">
+													Baca detail
+													<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+														<path fill-rule="evenodd"
+															d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+															clip-rule="evenodd" />
+													</svg>
+												</span>
+											</div>
+										</div>
+
+									</article>
+								</a>
+							</div>
+
+							<!-- SLIDE 1 -->
+							<div class="swiper-slide h-auto">
+								<a href="details.html" class="group block h-full rounded-[22px]
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F6FB]">
+									<article class="h-full rounded-[22px] bg-white ring-1 ring-[#EEF0F7]
+                  p-4 sm:p-4 md:p-5
+                  flex flex-col gap-3
+                  transition duration-300
+                  hover:-translate-y-[1px] hover:shadow-sm hover:ring-2 hover:ring-[#FF6B18]">
+
+										<!-- COVER -->
+										<div class="relative">
+											<div class="relative aspect-[2/3] w-full overflow-hidden rounded-[20px]
+                      bg-[#F4F6FB] ring-1 ring-[#EEF0F7]
+                      shadow-[0_18px_40px_-26px_rgba(0,0,0,0.65)]">
+												<div
+													class="absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-black/16 to-transparent">
+												</div>
+												<div
+													class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-white/15">
+												</div>
+
+												<p class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10
+                        rounded-full bg-white/95 backdrop-blur
+                        px-3 py-2 sm:px-4 sm:py-2
+                        font-bold text-[10px] leading-[14px] sm:text-xs sm:leading-[18px]
+                        ring-1 ring-black/5">
+													Analisis Kebijakan
+												</p>
+
+												<img src="assets/images/journal/cover-jurnal5.jpg"
+													class="h-full w-full object-cover" alt="Cover jurnal"
+													loading="lazy" />
+											</div>
+										</div>
+
+										<!-- INFO -->
+										<div class="flex flex-col gap-2 min-w-0 flex-1">
+											<h3
+												class="font-bold text-sm leading-[20px] sm:text-base sm:leading-[24px] md:text-lg md:leading-[27px] text-[#111827]">
+												<span class="card-title">
+													Judul publikasi maksimal 3 baris agar tinggi card seragam
+												</span>
+											</h3>
+
+											<p
+												class="text-[11px] leading-[16px] sm:text-sm sm:leading-[21px] text-[#A3A6AE]">
+												12 Desember 2025 <span class="mx-1">•</span> Ditinjau editorial
+											</p>
+
+											<div class="mt-auto flex items-center justify-between gap-3">
+												<!-- Avatar authors -->
+												<div class="flex items-center -space-x-2">
+													<img src="assets/images/photos/photo.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 1" loading="lazy">
+													<img src="assets/images/photos/photo1.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 2" loading="lazy">
+													<img src="assets/images/photos/photo2.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 3" loading="lazy">
+													<span
+														class="h-7 w-7 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[11px] font-bold ring-2 ring-white">+5</span>
+												</div>
+
+												<!-- CTA -->
+												<span
+													class="inline-flex items-center gap-2 text-[11px] sm:text-sm text-[#6B7280] group-hover:text-[#FF6B18] transition">
+													Baca detail
+													<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+														<path fill-rule="evenodd"
+															d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+															clip-rule="evenodd" />
+													</svg>
+												</span>
+											</div>
+										</div>
+
+									</article>
+								</a>
+							</div>
+
+							<!-- SLIDE 1 -->
+							<div class="swiper-slide h-auto">
+								<a href="details.html" class="group block h-full rounded-[22px]
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F6FB]">
+									<article class="h-full rounded-[22px] bg-white ring-1 ring-[#EEF0F7]
+                  p-4 sm:p-4 md:p-5
+                  flex flex-col gap-3
+                  transition duration-300
+                  hover:-translate-y-[1px] hover:shadow-sm hover:ring-2 hover:ring-[#FF6B18]">
+
+										<!-- COVER -->
+										<div class="relative">
+											<div class="relative aspect-[2/3] w-full overflow-hidden rounded-[20px]
+                      bg-[#F4F6FB] ring-1 ring-[#EEF0F7]
+                      shadow-[0_18px_40px_-26px_rgba(0,0,0,0.65)]">
+												<div
+													class="absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-black/16 to-transparent">
+												</div>
+												<div
+													class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-white/15">
+												</div>
+
+												<p class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10
+                        rounded-full bg-white/95 backdrop-blur
+                        px-3 py-2 sm:px-4 sm:py-2
+                        font-bold text-[10px] leading-[14px] sm:text-xs sm:leading-[18px]
+                        ring-1 ring-black/5">
+													Analisis Kebijakan
+												</p>
+
+												<img src="assets/images/journal/cover-jurnal3.jpg"
+													class="h-full w-full object-cover" alt="Cover jurnal"
+													loading="lazy" />
+											</div>
+										</div>
+
+										<!-- INFO -->
+										<div class="flex flex-col gap-2 min-w-0 flex-1">
+											<h3
+												class="font-bold text-sm leading-[20px] sm:text-base sm:leading-[24px] md:text-lg md:leading-[27px] text-[#111827]">
+												<span class="card-title">
+													Judul publikasi maksimal 3 baris agar tinggi card seragam
+												</span>
+											</h3>
+
+											<p
+												class="text-[11px] leading-[16px] sm:text-sm sm:leading-[21px] text-[#A3A6AE]">
+												12 Desember 2025 <span class="mx-1">•</span> Ditinjau editorial
+											</p>
+
+											<div class="mt-auto flex items-center justify-between gap-3">
+												<!-- Avatar authors -->
+												<div class="flex items-center -space-x-2">
+													<img src="assets/images/photos/photo.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 1" loading="lazy">
+													<img src="assets/images/photos/photo1.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 2" loading="lazy">
+													<img src="assets/images/photos/photo2.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 3" loading="lazy">
+													<span
+														class="h-7 w-7 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[11px] font-bold ring-2 ring-white">+5</span>
+												</div>
+
+												<!-- CTA -->
+												<span
+													class="inline-flex items-center gap-2 text-[11px] sm:text-sm text-[#6B7280] group-hover:text-[#FF6B18] transition">
+													Baca detail
+													<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+														<path fill-rule="evenodd"
+															d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+															clip-rule="evenodd" />
+													</svg>
+												</span>
+											</div>
+										</div>
+
+									</article>
+								</a>
+							</div>
+
+							<!-- SLIDE 1 -->
+							<div class="swiper-slide h-auto">
+								<a href="details.html" class="group block h-full rounded-[22px]
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F6FB]">
+									<article class="h-full rounded-[22px] bg-white ring-1 ring-[#EEF0F7]
+                  p-4 sm:p-4 md:p-5
+                  flex flex-col gap-3
+                  transition duration-300
+                  hover:-translate-y-[1px] hover:shadow-sm hover:ring-2 hover:ring-[#FF6B18]">
+
+										<!-- COVER -->
+										<div class="relative">
+											<div class="relative aspect-[2/3] w-full overflow-hidden rounded-[20px]
+                      bg-[#F4F6FB] ring-1 ring-[#EEF0F7]
+                      shadow-[0_18px_40px_-26px_rgba(0,0,0,0.65)]">
+												<div
+													class="absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-black/16 to-transparent">
+												</div>
+												<div
+													class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-white/15">
+												</div>
+
+												<p class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10
+                        rounded-full bg-white/95 backdrop-blur
+                        px-3 py-2 sm:px-4 sm:py-2
+                        font-bold text-[10px] leading-[14px] sm:text-xs sm:leading-[18px]
+                        ring-1 ring-black/5">
+													Analisis Kebijakan
+												</p>
+
+												<img src="assets/images/journal/cover-jurnal4.jpg"
+													class="h-full w-full object-cover" alt="Cover jurnal"
+													loading="lazy" />
+											</div>
+										</div>
+
+										<!-- INFO -->
+										<div class="flex flex-col gap-2 min-w-0 flex-1">
+											<h3
+												class="font-bold text-sm leading-[20px] sm:text-base sm:leading-[24px] md:text-lg md:leading-[27px] text-[#111827]">
+												<span class="card-title">
+													Judul publikasi maksimal 3 baris agar tinggi card seragam
+												</span>
+											</h3>
+
+											<p
+												class="text-[11px] leading-[16px] sm:text-sm sm:leading-[21px] text-[#A3A6AE]">
+												12 Desember 2025 <span class="mx-1">•</span> Ditinjau editorial
+											</p>
+
+											<div class="mt-auto flex items-center justify-between gap-3">
+												<!-- Avatar authors -->
+												<div class="flex items-center -space-x-2">
+													<img src="assets/images/photos/photo.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 1" loading="lazy">
+													<img src="assets/images/photos/photo1.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 2" loading="lazy">
+													<img src="assets/images/photos/photo2.png"
+														class="h-7 w-7 rounded-full object-cover ring-2 ring-white"
+														alt="Author 3" loading="lazy">
+													<span
+														class="h-7 w-7 rounded-full grid place-items-center bg-[#111827]/5 text-[#111827] text-[11px] font-bold ring-2 ring-white">+5</span>
+												</div>
+
+												<!-- CTA -->
+												<span
+													class="inline-flex items-center gap-2 text-[11px] sm:text-sm text-[#6B7280] group-hover:text-[#FF6B18] transition">
+													Baca detail
+													<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+														<path fill-rule="evenodd"
+															d="M7.21 14.77a.75.75 0 0 1 .02-1.06L10.94 10 7.23 6.29a.75.75 0 1 1 1.06-1.06l4.24 4.24c.3.3.3.77 0 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0Z"
+															clip-rule="evenodd" />
+													</svg>
+												</span>
+											</div>
+										</div>
+
+									</article>
+								</a>
+							</div>
 						</div>
-						<div class="card-info flex flex-col gap-[6px]">
-							<h3 class="font-bold text-lg leading-[27px]">Bersepeda dapat membuat diri menjadi lebih baik
-								lagi</h3>
-							<p class="text-sm leading-[21px] text-[#A3A6AE]">12 Jun, 2024</p>
-						</div>
+
+						<div class="swiper-pagination"></div>
+						<div class="swiper-button-prev" aria-label="Sebelumnya"></div>
+						<div class="swiper-button-next" aria-label="Berikutnya"></div>
 					</div>
-				</a>
-				<a href="details.html" class="card-news">
-					<div
-						class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[26px_20px] flex flex-col gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300 bg-white">
-						<div
-							class="thumbnail-container w-full h-[200px] rounded-[20px] flex shrink-0 overflow-hidden relative">
-							<p
-								class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px]">
-								ENTERTAINMENT</p>
-							<img src="assets/images/thumbnails/camp.png" class="object-cover w-full h-full"
-								alt="thumbnail" />
-						</div>
-						<div class="card-info flex flex-col gap-[6px]">
-							<h3 class="font-bold text-lg leading-[27px]">Beberapa artis ini merayakan ultah di tengah
-								hutan raya</h3>
-							<p class="text-sm leading-[21px] text-[#A3A6AE]">12 Jun, 2024</p>
-						</div>
-					</div>
-				</a>
-				<a href="details.html" class="card-news">
-					<div
-						class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[26px_20px] flex flex-col gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300 bg-white">
-						<div
-							class="thumbnail-container w-full h-[200px] rounded-[20px] flex shrink-0 overflow-hidden relative">
-							<p
-								class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px]">
-								POLITIC</p>
-							<img src="assets/images/thumbnails/th-demonstration.png" class="object-cover w-full h-full"
-								alt="thumbnail" />
-						</div>
-						<div class="card-info flex flex-col gap-[6px]">
-							<h3 class="font-bold text-lg leading-[27px]">Terjadi demo pada ibu kota jakarta membuat
-								macet parah</h3>
-							<p class="text-sm leading-[21px] text-[#A3A6AE]">12 Jun, 2024</p>
-						</div>
-					</div>
-				</a>
+				</div>
+			</div>
+
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-[30px]">
+
 			</div>
 		</div>
 	</section>
 
 	<script src="js/two-lines-text.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+	<!-- Toggle Hamburger (ikuti index) -->
+	<script>
+		const btn = document.getElementById("hamburgerBtn");
+		const panel = document.getElementById("mobileMenu");
+		const iconBurger = document.getElementById("iconBurger");
+		const iconClose = document.getElementById("iconClose");
+
+		btn.addEventListener("click", () => {
+			const isOpen = !panel.classList.contains("hidden");
+			panel.classList.toggle("hidden");
+			btn.setAttribute("aria-expanded", String(!isOpen));
+			iconBurger.classList.toggle("hidden");
+			iconClose.classList.toggle("hidden");
+		});
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> <!-- [web:2] -->
+	<script>
+		// Swiper mendukung responsive breakpoints via opsi "breakpoints" [web:23]
+		new Swiper(".upToDateSwiper", {
+			slidesPerView: 1.12,
+			spaceBetween: 16,
+			watchOverflow: true,
+
+			breakpoints: {
+				480: { slidesPerView: 1.28, spaceBetween: 16 },  // ~575px masuk sini
+				640: { slidesPerView: 2.05, spaceBetween: 16 },
+				1024: { slidesPerView: 3, spaceBetween: 24 }
+			}, // breakpoints [web:23]
+
+			pagination: {
+				el: ".upToDateSwiper .swiper-pagination",
+				clickable: true
+			},
+
+			navigation: {
+				nextEl: ".upToDateSwiper .swiper-button-next",
+				prevEl: ".upToDateSwiper .swiper-button-prev"
+			}
+		});
+	</script>
 </body>
 
 </html>
