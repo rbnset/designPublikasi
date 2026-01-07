@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev:css": "tailwindcss -i ./src/styles/input.css -o ./public/assets/css/output.css --watch",
-    "build:css": "tailwindcss -i ./src/styles/input.css -o ./public/assets/css/output.css --minify"
+    "build:css": "tailwindcss -i ./src/styles/input.css -o ./public/assets/css/output.css --minify",
+    "format": "prettier --write .",
+    "check:format": "prettier --check ."
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,8 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
     "@tailwindcss/line-clamp": "^0.4.4",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.1.18"
   }
 }
