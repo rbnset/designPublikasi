@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../public/assets/css/output.css" rel="stylesheet" />
+    <link href="../styles/main.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Contact</title>
+  </head>
+
+  <body class="m-0 bg-[#F8F9FC] font-[Poppins] text-[#0B0B0B]">
+    <!-- CONTAINER -->
+    <div class="px-4 sm:px-6 lg:px-8 mx-auto max-w-[1130px]">
+      <!-- HEADER / NAVBAR -->
+      <header class="mt-6">
+        <div class="gap-4 flex items-center justify-between">
+          <!-- Logo -->
+          <div class="gap-4 flex shrink-0 items-center">
+            <a href="index.html" class="flex shrink-0 items-center">
+              <img src="../../public/assets/images/logos/logo.svg" alt="Maga" />
+            </a>
+          </div>
+
+          <!-- Right -->
+          <div class="gap-3 flex items-center">
+            <!-- Desktop Menu -->
+            <nav
+              id="MenuBar"
+              class="xl:flex hidden items-center"
+              aria-label="Main menu"
+            >
+              <div
+                class="gap-1 bg-white p-1 inline-flex flex-wrap items-center rounded-full ring-1 ring-[#EEF0F7]"
+              >
+                <a
+                  href="index.html"
+                  data-nav="home"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                  >Home</a
+                >
+                <a
+                  href="publicationPage.html"
+                  data-nav="publication"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                  >Publication</a
+                >
+                <a
+                  href="eventPage.html"
+                  data-nav="event"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                  >Event</a
+                >
+                <a
+                  href="aboutPage.html"
+                  data-nav="about"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                  >About</a
+                >
+                <a
+                  href="contatUsPage.html"
+                  data-nav="contact"
+                  class="px-4 py-2 text-sm font-bold rounded-full bg-[#F4F6FB] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                  aria-current="page"
+                  >Contact</a
+                >
+              </div>
+            </nav>
+
+            <!-- Desktop Login button (optional) -->
+            <a
+              href="loginPage.html"
+              class="bg-white text-sm font-bold xl:flex hidden h-[44px] items-center justify-center rounded-full border border-[#EEF0F7] px-[18px] transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+              >Login</a
+            >
+
+            <!-- Mobile hamburger -->
+            <button
+              id="hamburgerBtn"
+              class="h-10 w-10 bg-white xl:hidden flex items-center justify-center rounded-full border border-[#EEF0F7]"
+              aria-controls="mobileMenu"
+              aria-expanded="false"
+              aria-label="Toggle menu"
+              type="button"
+            >
+              <svg
+                id="iconBurger"
+                class="h-5 w-5 block"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg
+                id="iconClose"
+                class="h-5 w-5 hidden"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- MOBILE OVERLAY -->
+        <div
+          id="mobileOverlay"
+          class="inset-0 bg-black/25 xl:hidden fixed z-40 hidden backdrop-blur-[2px]"
+          aria-hidden="true"
+        ></div>
+
+        <!-- MOBILE PANEL -->
+        <div id="mobileMenu" class="mt-4 xl:hidden relative z-50 hidden">
+          <div
+            class="space-y-4 rounded-2xl bg-white p-3 border border-[#EEF0F7]"
+          >
+            <div class="gap-2 grid grid-cols-1" aria-label="Main menu mobile">
+              <a
+                href="index.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] transition-colors duration-300 hover:border-[#FF6B18]"
+                >Home</a
+              >
+              <a
+                href="publicationPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] transition-colors duration-300 hover:border-[#FF6B18]"
+                >Publication</a
+              >
+              <a
+                href="eventPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] transition-colors duration-300 hover:border-[#FF6B18]"
+                >Event</a
+              >
+              <a
+                href="aboutPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] transition-colors duration-300 hover:border-[#FF6B18]"
+                >About</a
+              >
+              <a
+                href="contatUsPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-bold border border-[#FF6B18] bg-[#FFF7F2] text-[#FF6B18]"
+                aria-current="page"
+                >Contact</a
+              >
+              <a
+                href="loginPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-bold text-white bg-[#FF6B18] text-center transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880]"
+                >Login</a
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <main class="mt-10 pb-16 sm:mt-14 sm:pb-20">
+        <!-- Heading -->
+        <section class="text-center">
+          <p
+            class="px-4 py-2 text-xs font-bold inline-flex items-center rounded-full bg-[#FFECE1] text-[#FF6B18]"
+          >
+            Contact
+          </p>
+          <h1
+            class="mt-4 text-3xl font-bold sm:text-4xl sm:leading-[45px] leading-[40px]"
+          >
+            Hubungi tim kami
+          </h1>
+          <p
+            class="mt-3 max-w-2xl text-sm sm:text-base sm:leading-[24px] mx-auto leading-[21px] text-[#6B7280]"
+          >
+            Punya pertanyaan, masukan, kerja sama, atau ingin melaporkan konten?
+            Kirim pesan melalui form di bawah.
+          </p>
+        </section>
+
+        <!-- Content -->
+        <section class="mt-10 gap-8 lg:grid-cols-2 lg:items-start grid">
+          <!-- Left: info -->
+          <div class="space-y-5 lg:order-1 order-1">
+            <div
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <h2 class="text-lg font-bold sm:text-xl text-[#111827]">
+                Info kontak
+              </h2>
+              <p class="mt-2 text-sm leading-[22px] text-[#6B7280]">
+                Jam operasional: Senin–Jumat, 09:00–17:00 WIB (contoh).
+              </p>
+
+              <div class="mt-5 space-y-3 text-sm font-semibold text-[#111827]">
+                <div class="gap-2 flex flex-wrap items-center">
+                  <span
+                    class="px-3 py-2 font-bold rounded-full bg-[#F4F6FB] text-[11px] text-[#6B7280]"
+                    >Email</span
+                  >
+                  <a
+                    href="mailto:support@maga.news"
+                    class="font-bold text-[#FF6B18] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                    >support@maga.news</a
+                  >
+                </div>
+
+                <div class="gap-2 flex flex-wrap items-center">
+                  <span
+                    class="px-3 py-2 font-bold rounded-full bg-[#F4F6FB] text-[11px] text-[#6B7280]"
+                    >WhatsApp</span
+                  >
+                  <a
+                    href="#"
+                    class="font-bold text-[#FF6B18] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                    >+62 812-0000-0000</a
+                  >
+                </div>
+
+                <div class="gap-2 flex flex-wrap items-center">
+                  <span
+                    class="px-3 py-2 font-bold rounded-full bg-[#F4F6FB] text-[11px] text-[#6B7280]"
+                    >Alamat</span
+                  >
+                  <span class="text-[#111827]">
+                    Depok, Yogyakarta, Indonesia (contoh)
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <h3 class="text-lg font-bold text-[#111827]">Topik cepat</h3>
+              <div class="mt-4 gap-2 flex flex-wrap">
+                <button
+                  type="button"
+                  class="bg-white px-4 py-2 text-sm font-bold rounded-full border border-[#EEF0F7] text-[#111827] hover:bg-[#F4F6FB]"
+                >
+                  Kerja sama
+                </button>
+                <button
+                  type="button"
+                  class="bg-white px-4 py-2 text-sm font-bold rounded-full border border-[#EEF0F7] text-[#111827] hover:bg-[#F4F6FB]"
+                >
+                  Laporan bug
+                </button>
+                <button
+                  type="button"
+                  class="bg-white px-4 py-2 text-sm font-bold rounded-full border border-[#EEF0F7] text-[#111827] hover:bg-[#F4F6FB]"
+                >
+                  Konten
+                </button>
+                <button
+                  type="button"
+                  class="bg-white px-4 py-2 text-sm font-bold rounded-full border border-[#EEF0F7] text-[#111827] hover:bg-[#F4F6FB]"
+                >
+                  Saran fitur
+                </button>
+              </div>
+              <p
+                class="mt-3 sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
+              >
+                (Opsional) tombol ini bisa kamu hubungkan untuk auto-isi
+                “Subject”.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="lg:order-2 order-2">
+            <div
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <div class="gap-4 flex items-start justify-between">
+                <div class="min-w-0">
+                  <h2
+                    class="text-xl font-bold sm:text-[22px] leading-[28px] text-[#111827]"
+                  >
+                    Kirim pesan
+                  </h2>
+                  <p
+                    class="mt-1 sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
+                  >
+                    Isi form berikut, tim akan membalas secepatnya.
+                  </p>
+                </div>
+
+                <div class="sm:block hidden">
+                  <span
+                    class="px-4 py-2 text-xs font-bold inline-flex rounded-full bg-[#F4F6FB] text-[#111827]"
+                  >
+                    Support
+                  </span>
+                </div>
+              </div>
+
+              <form
+                id="contactForm"
+                class="mt-6 space-y-4"
+                action="#"
+                method="post"
+              >
+                <div class="gap-4 sm:grid-cols-2 grid">
+                  <div>
+                    <label for="name" class="text-sm font-bold text-[#111827]"
+                      >Nama</label
+                    >
+                    <div
+                      class="mt-2 gap-3 bg-white flex items-center rounded-full border border-[#E8EBF4] p-[12px_16px] transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FF6B18]"
+                    >
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        placeholder="Nama kamu"
+                        class="text-sm font-semibold placeholder:font-normal w-full appearance-none bg-transparent outline-none placeholder:text-[#A3A6AE]"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="email" class="text-sm font-bold text-[#111827]"
+                      >Email</label
+                    >
+                    <div
+                      class="mt-2 gap-3 bg-white flex items-center rounded-full border border-[#E8EBF4] p-[12px_16px] transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FF6B18]"
+                    >
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        required
+                        placeholder="nama@email.com"
+                        class="text-sm font-semibold placeholder:font-normal w-full appearance-none bg-transparent outline-none placeholder:text-[#A3A6AE]"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="subject" class="text-sm font-bold text-[#111827]"
+                    >Subjek</label
+                  >
+                  <div
+                    class="mt-2 gap-3 bg-white flex items-center rounded-full border border-[#E8EBF4] p-[12px_16px] transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FF6B18]"
+                  >
+                    <input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      required
+                      placeholder="Contoh: Kerja sama media"
+                      class="text-sm font-semibold placeholder:font-normal w-full appearance-none bg-transparent outline-none placeholder:text-[#A3A6AE]"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="message" class="text-sm font-bold text-[#111827]"
+                    >Pesan</label
+                  >
+                  <div
+                    class="mt-2 bg-white p-4 rounded-[18px] border border-[#E8EBF4] transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FF6B18]"
+                  >
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="6"
+                      required
+                      placeholder="Tulis pesan kamu di sini..."
+                      class="text-sm font-semibold placeholder:font-normal w-full resize-none appearance-none bg-transparent outline-none placeholder:text-[#A3A6AE]"
+                    ></textarea>
+                  </div>
+                  <p
+                    class="mt-2 sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
+                  >
+                    Jangan tulis password atau data sensitif di pesan.
+                  </p>
+                </div>
+
+                <!-- Alert -->
+                <div
+                  id="contactSuccess"
+                  class="rounded-2xl border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700 hidden border"
+                  role="status"
+                >
+                  Pesan terkirim (demo). Nanti ganti dengan request ke backend.
+                </div>
+
+                <button
+                  type="submit"
+                  class="px-5 py-3 text-sm font-bold text-white focus-visible:ring-offset-white inline-flex w-full items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18] focus-visible:ring-offset-2"
+                >
+                  Kirim pesan
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- JS: mobile menu + demo submit -->
+    <script>
+      // Mobile menu (samakan seperti halaman lain)
+      (function () {
+        const btn = document.getElementById("hamburgerBtn");
+        const panel = document.getElementById("mobileMenu");
+        const overlay = document.getElementById("mobileOverlay");
+        const iconBurger = document.getElementById("iconBurger");
+        const iconClose = document.getElementById("iconClose");
+
+        function setMobileOpen(open) {
+          panel?.classList.toggle("hidden", !open);
+          overlay?.classList.toggle("hidden", !open);
+          btn?.setAttribute("aria-expanded", String(open));
+          iconBurger?.classList.toggle("hidden", open);
+          iconClose?.classList.toggle("hidden", !open);
+          document.documentElement.classList.toggle("overflow-hidden", open);
+          document.body.classList.toggle("overflow-hidden", open);
+        }
+
+        btn?.addEventListener("click", () => {
+          const open = panel?.classList.contains("hidden");
+          setMobileOpen(!!open);
+        });
+
+        overlay?.addEventListener("click", () => setMobileOpen(false));
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") setMobileOpen(false);
+        });
+      })();
+
+      // Demo submit (ganti jadi API call)
+      (function () {
+        const form = document.getElementById("contactForm");
+        const success = document.getElementById("contactSuccess");
+        if (!form || !success) return;
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          success.classList.remove("hidden");
+          form.reset();
+        });
+      })();
+    </script>
+
+    <!-- Optional: active nav highlight (kalau kamu pakai di halaman lain) -->
+    <script>
+      (function () {
+        const current = location.pathname.split("/").pop()?.toLowerCase() || "";
+        const map = {
+          "index.html": "home",
+          "homepage.html": "home",
+          "publicationpage.html": "publication",
+          "eventpage.html": "event",
+          "aboutpage.html": "about",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+          "contatuspage.html": "contact",
+        };
+
+        // NOTE: nama file kamu "contatUsPage.html" (typo) jadi pastikan ini sesuai:
+        if (current === "contatuspage.html" || current === "contatuspage.html")
+          return;
+      })();
+    </script>
+  </body>
+</html>
