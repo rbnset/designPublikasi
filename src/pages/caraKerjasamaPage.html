@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../public/assets/css/output.css" rel="stylesheet" />
+    <link href="../styles/main.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cara Kerja Sama</title>
+  </head>
+
+  <body class="m-0 bg-[#F8F9FC] font-[Poppins] text-[#0B0B0B]">
+    <div class="px-4 sm:px-6 lg:px-8 mx-auto max-w-[1130px]">
+      <!-- HEADER: boleh copy dari halaman Home kamu biar konsisten -->
+      <header class="mt-6">
+        <div class="gap-4 flex items-center justify-between">
+          <div class="gap-4 flex shrink-0 items-center">
+            <a href="index.html" class="flex shrink-0 items-center">
+              <img src="../../public/assets/images/logos/logo.svg" alt="Maga" />
+            </a>
+          </div>
+
+          <div class="gap-3 flex items-center">
+            <nav
+              id="MenuBar"
+              class="xl:flex hidden items-center"
+              aria-label="Main menu"
+            >
+              <div
+                class="gap-1 bg-white p-1 inline-flex flex-wrap items-center rounded-full ring-1 ring-[#EEF0F7]"
+              >
+                <a
+                  href="index.html"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB]"
+                  >Home</a
+                >
+                <a
+                  href="publicationPage.html"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB]"
+                  >Publication</a
+                >
+                <a
+                  href="eventPage.html"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB]"
+                  >Event</a
+                >
+                <a
+                  href="aboutPage.html"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB]"
+                  >About</a
+                >
+                <a
+                  href="contatUsPage.html"
+                  class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB]"
+                  >Contact</a
+                >
+              </div>
+            </nav>
+
+            <a
+              href="contatUsPage.html"
+              class="text-sm font-bold text-white xl:flex hidden h-[44px] shrink-0 items-center justify-center rounded-full bg-[#FF6B18] px-[18px] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880]"
+            >
+              Daftar Author
+            </a>
+
+            <!-- Mobile hamburger (opsional: copy JS dari Home jika dipakai) -->
+            <button
+              id="hamburgerBtn"
+              class="h-10 w-10 bg-white xl:hidden flex items-center justify-center rounded-full border border-[#EEF0F7]"
+              aria-controls="mobileMenu"
+              aria-expanded="false"
+              aria-label="Toggle menu"
+              type="button"
+            >
+              <svg
+                id="iconBurger"
+                class="h-5 w-5 block"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg
+                id="iconClose"
+                class="h-5 w-5 hidden"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile overlay + menu (opsional: copy dari Home) -->
+        <div
+          id="mobileOverlay"
+          class="inset-0 bg-black/25 xl:hidden fixed z-40 hidden backdrop-blur-[2px]"
+          aria-hidden="true"
+        ></div>
+
+        <div id="mobileMenu" class="mt-4 xl:hidden relative z-50 hidden">
+          <div
+            class="space-y-4 rounded-2xl bg-white p-3 border border-[#EEF0F7]"
+          >
+            <div class="gap-2 grid grid-cols-1" aria-label="Main menu mobile">
+              <a
+                href="index.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] hover:border-[#FF6B18]"
+                >Home</a
+              >
+              <a
+                href="publicationPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] hover:border-[#FF6B18]"
+                >Publication</a
+              >
+              <a
+                href="eventPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] hover:border-[#FF6B18]"
+                >Event</a
+              >
+              <a
+                href="aboutPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] hover:border-[#FF6B18]"
+                >About</a
+              >
+              <a
+                href="contatUsPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] hover:border-[#FF6B18]"
+                >Contact</a
+              >
+
+              <a
+                href="contatUsPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-bold text-white bg-[#FF6B18] text-center hover:shadow-[0_10px_20px_0_#FF6B1880]"
+              >
+                Ajukan Kerja Sama
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="mt-10 pb-16 sm:mt-14 sm:pb-20">
+        <!-- HERO -->
+        <section class="text-center">
+          <p
+            class="px-4 py-2 text-xs font-bold inline-flex items-center rounded-full bg-[#FFECE1] text-[#FF6B18]"
+          >
+            Partnership • Submission
+          </p>
+          <h1
+            class="mt-4 text-3xl font-bold sm:text-4xl sm:leading-[45px] leading-[40px]"
+          >
+            Cara penulis upload karya ke sistem kami
+          </h1>
+          <p
+            class="mt-3 max-w-2xl text-sm sm:text-base sm:leading-[24px] mx-auto leading-[21px] text-[#6B7280]"
+          >
+            Alurnya dibuat sederhana: penulis mengirim naskah + metadata, lalu
+            tim melakukan kurasi sebelum karya tayang di menu Publication.
+          </p>
+
+          <div class="mt-6 gap-3 flex flex-wrap items-center justify-center">
+            <a
+              href="#alur"
+              class="px-5 py-3 text-sm font-bold text-white inline-flex items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880]"
+            >
+              Lihat alur upload
+            </a>
+            <a
+              href="#"
+              class="bg-white px-5 py-3 text-sm font-bold inline-flex items-center justify-center rounded-full border border-[#EEF0F7] transition-all duration-300 hover:bg-[#F4F6FB]"
+            >
+              Upload Karyamu!
+            </a>
+          </div>
+        </section>
+
+        <!-- ALUR -->
+        <section id="alur" class="mt-10 sm:mt-12">
+          <div class="text-center">
+            <p
+              class="px-4 py-2 text-xs font-bold inline-flex items-center rounded-full bg-[#F4F6FB] text-[#111827]"
+            >
+              Alur Submission
+            </p>
+            <h2 class="mt-4 text-2xl font-bold sm:text-3xl text-[#111827]">
+              6 langkah dari draft sampai tayang
+            </h2>
+            <p
+              class="mt-3 max-w-2xl text-sm sm:text-base sm:leading-[24px] mx-auto leading-[21px] text-[#6B7280]"
+            >
+              Struktur ini mengikuti pola umum platform publikasi: mulai
+              pengajuan, unggah naskah, isi detail, lalu kurasi hingga
+              publikasi.
+            </p>
+          </div>
+
+          <div class="mt-8 gap-5 lg:grid-cols-3 lg:gap-[30px] grid">
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <p
+                class="px-4 py-2 text-xs font-bold inline-flex rounded-full bg-[#FFECE1] text-[#FF6B18]"
+              >
+                Step 1
+              </p>
+              <h3 class="mt-4 text-lg font-bold text-[#111827]">
+                Buat akun / Login
+              </h3>
+              <p class="mt-2 text-sm leading-[22px] text-[#6B7280]">
+                Penulis masuk ke sistem agar bisa melacak status karya (dikirim,
+                direview, revisi, tayang).
+              </p>
+            </article>
+
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <p
+                class="px-4 py-2 text-xs font-bold inline-flex rounded-full bg-[#FFECE1] text-[#FF6B18]"
+              >
+                Step 2
+              </p>
+              <h3 class="mt-4 text-lg font-bold text-[#111827]">
+                Mulai pengajuan
+              </h3>
+              <p class="mt-2 text-sm leading-[22px] text-[#6B7280]">
+                Klik tombol “Ajukan Karya / New Submission”, lalu setujui
+                checklist persyaratan dan orisinalitas naskah.
+              </p>
+            </article>
+
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <p
+                class="px-4 py-2 text-xs font-bold inline-flex rounded-full bg-[#FFECE1] text-[#FF6B18]"
+              >
+                Step 3
+              </p>
+              <h3 class="mt-4 text-lg font-bold text-[#111827]">
+                Upload file karya
+              </h3>
+              <p class="mt-2 text-sm leading-[22px] text-[#6B7280]">
+                Unggah naskah utama (contoh: .doc/.docx/.pdf) dan file pendukung
+                bila ada (cover, gambar, lampiran).
+              </p>
+            </article>
+
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <p
+                class="px-4 py-2 text-xs font-bold inline-flex rounded-full bg-[#FFECE1] text-[#FF6B18]"
+              >
+                Step 4
+              </p>
+              <h3 class="mt-4 text-lg font-bold text-[#111827]">
+                Isi metadata karya
+              </h3>
+              <p class="mt-2 text-sm leading-[22px] text-[#6B7280]">
+                Lengkapi judul, ringkasan/abstrak, kata kunci, kategori/topik,
+                nama penulis, institusi, serta kontak korespondensi.
+              </p>
+            </article>
+
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <p
+                class="px-4 py-2 text-xs font-bold inline-flex rounded-full bg-[#FFECE1] text-[#FF6B18]"
+              >
+                Step 5
+              </p>
+              <h3 class="mt-4 text-lg font-bold text-[#111827]">
+                Kurasi & revisi
+              </h3>
+              <p class="mt-2 text-sm leading-[22px] text-[#6B7280]">
+                Tim mengecek kelayakan topik, kualitas, dan kepatuhan format;
+                jika perlu, penulis diminta revisi sebelum tayang.
+              </p>
+            </article>
+
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <p
+                class="px-4 py-2 text-xs font-bold inline-flex rounded-full bg-[#FFECE1] text-[#FF6B18]"
+              >
+                Step 6
+              </p>
+              <h3 class="mt-4 text-lg font-bold text-[#111827]">
+                Tayang di Publication
+              </h3>
+              <p class="mt-2 text-sm leading-[22px] text-[#6B7280]">
+                Karya dipublikasikan, tampil di listing, bisa dicari melalui
+                fitur search, dan siap dibagikan ke pembaca.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- PERSYARATAN -->
+        <section class="mt-10 sm:mt-12">
+          <div class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]">
+            <div
+              class="gap-6 lg:flex-row lg:items-start lg:justify-between flex flex-col"
+            >
+              <div class="min-w-0">
+                <h2 class="text-2xl font-bold text-[#111827]">
+                  Yang perlu disiapkan penulis
+                </h2>
+                <p
+                  class="mt-2 text-sm sm:text-base sm:leading-[24px] leading-[22px] text-[#6B7280]"
+                >
+                  Supaya proses cepat, siapkan file dan informasi dasar sebelum
+                  upload.
+                </p>
+
+                <ul class="mt-5 gap-3 sm:grid-cols-2 grid">
+                  <li
+                    class="rounded-2xl p-4 border border-[#EEF0F7] bg-[#F8F9FC]"
+                  >
+                    <p class="text-sm font-bold text-[#111827]">
+                      File naskah utama
+                    </p>
+                    <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                      Naskah final/versi review (mis. DOC/DOCX/PDF) + judul yang
+                      jelas.
+                    </p>
+                  </li>
+                  <li
+                    class="rounded-2xl p-4 border border-[#EEF0F7] bg-[#F8F9FC]"
+                  >
+                    <p class="text-sm font-bold text-[#111827]">
+                      Ringkasan & kata kunci
+                    </p>
+                    <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                      Abstrak/ringkasan singkat dan 3–7 kata kunci untuk
+                      membantu pencarian.
+                    </p>
+                  </li>
+                  <li
+                    class="rounded-2xl p-4 border border-[#EEF0F7] bg-[#F8F9FC]"
+                  >
+                    <p class="text-sm font-bold text-[#111827]">Data penulis</p>
+                    <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                      Nama, institusi/komunitas (jika ada), bio singkat,
+                      email/WA untuk konfirmasi.
+                    </p>
+                  </li>
+                  <li
+                    class="rounded-2xl p-4 border border-[#EEF0F7] bg-[#F8F9FC]"
+                  >
+                    <p class="text-sm font-bold text-[#111827]">
+                      Aset pendukung
+                    </p>
+                    <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                      Cover/thumbnail, gambar, atau link referensi (opsional,
+                      sesuai jenis karya).
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="shrink-0">
+                <div
+                  class="rounded-2xl p-5 w-full max-w-[420px] border border-[#EEF0F7] bg-[#F4F6FB]"
+                >
+                  <p class="text-xs font-bold tracking-wide text-[#A3A6AE]">
+                    Quick action
+                  </p>
+                  <p class="mt-2 text-lg font-bold text-[#111827]">
+                    Mulai pengajuan karya
+                  </p>
+                  <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                    Jika sistem upload masih via admin, gunakan tombol Contact
+                    untuk mengirim naskah dan detailnya.
+                  </p>
+                  <a
+                    href="contatUsPage.html"
+                    class="mt-4 px-5 py-3 text-sm font-bold text-white inline-flex w-full items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880]"
+                  >
+                    Upload Karya Tulismu!
+                  </a>
+                  <a
+                    href="publicationPage.html"
+                    class="mt-3 bg-white px-5 py-3 text-sm font-bold inline-flex w-full items-center justify-center rounded-full border border-[#EEF0F7] transition-all duration-300 hover:bg-[#F4F6FB]"
+                  >
+                    Lihat contoh Publication
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- JS mobile menu (copy sederhana dari Home) -->
+    <script>
+      (function () {
+        const btn = document.getElementById("hamburgerBtn");
+        const panel = document.getElementById("mobileMenu");
+        const overlay = document.getElementById("mobileOverlay");
+        const iconBurger = document.getElementById("iconBurger");
+        const iconClose = document.getElementById("iconClose");
+
+        function setMobileOpen(open) {
+          panel?.classList.toggle("hidden", !open);
+          overlay?.classList.toggle("hidden", !open);
+          btn?.setAttribute("aria-expanded", String(open));
+          iconBurger?.classList.toggle("hidden", open);
+          iconClose?.classList.toggle("hidden", !open);
+          document.documentElement.classList.toggle("overflow-hidden", open);
+          document.body.classList.toggle("overflow-hidden", open);
+        }
+
+        btn?.addEventListener("click", () => {
+          const open = panel?.classList.contains("hidden");
+          setMobileOpen(!!open);
+        });
+
+        overlay?.addEventListener("click", () => setMobileOpen(false));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") setMobileOpen(false);
+        });
+      })();
+    </script>
+  </body>
+</html>

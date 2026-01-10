@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <title>About</title>
+    <title>Tentang — BHAYASCIENTIA</title>
   </head>
 
   <body class="m-0 bg-[#F8F9FC] font-[Poppins] text-[#0B0B0B]">
@@ -20,8 +20,15 @@
         <div class="gap-4 flex items-center justify-between">
           <!-- Logo -->
           <div class="gap-4 flex shrink-0 items-center">
-            <a href="index.html" class="flex shrink-0 items-center">
-              <img src="../../public/assets/images/logos/logo.svg" alt="Maga" />
+            <a
+              href="index.html"
+              class="flex shrink-0 items-center"
+              aria-label="Beranda BHAYASCIENTIA"
+            >
+              <img
+                src="../../public/assets/images/logos/logo.svg"
+                alt="BHAYASCIENTIA"
+              />
             </a>
           </div>
 
@@ -31,7 +38,7 @@
             <nav
               id="MenuBar"
               class="xl:flex hidden items-center"
-              aria-label="Main menu"
+              aria-label="Menu utama"
             >
               <div
                 class="gap-1 bg-white p-1 inline-flex flex-wrap items-center rounded-full ring-1 ring-[#EEF0F7]"
@@ -40,13 +47,13 @@
                   href="index.html"
                   data-nav="home"
                   class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
-                  >Home</a
+                  >Beranda</a
                 >
                 <a
                   href="publicationPage.html"
                   data-nav="publication"
                   class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
-                  >Publication</a
+                  >Publikasi</a
                 >
                 <a
                   href="eventPage.html"
@@ -59,22 +66,22 @@
                   data-nav="about"
                   class="px-4 py-2 text-sm font-bold rounded-full bg-[#F4F6FB] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
                   aria-current="page"
-                  >About</a
+                  >Tentang</a
                 >
                 <a
                   href="contatUsPage.html"
                   data-nav="contact"
                   class="px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
-                  >Contact</a
+                  >Kontak</a
                 >
               </div>
             </nav>
 
-            <!-- Desktop Login button (optional) -->
+            <!-- Desktop CTA (lebih relevan dari "Login" umum) -->
             <a
-              href="loginPage.html"
+              href="authorLoginPage.html"
               class="bg-white text-sm font-bold xl:flex hidden h-[44px] items-center justify-center rounded-full border border-[#EEF0F7] px-[18px] transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
-              >Login</a
+              >Masuk author</a
             >
 
             <!-- Mobile hamburger -->
@@ -83,7 +90,7 @@
               class="h-10 w-10 bg-white xl:hidden flex items-center justify-center rounded-full border border-[#EEF0F7]"
               aria-controls="mobileMenu"
               aria-expanded="false"
-              aria-label="Toggle menu"
+              aria-label="Buka menu"
               type="button"
             >
               <svg
@@ -122,16 +129,19 @@
           <div
             class="space-y-4 rounded-2xl bg-white p-3 border border-[#EEF0F7]"
           >
-            <div class="gap-2 grid grid-cols-1" aria-label="Main menu mobile">
+            <div
+              class="gap-2 grid grid-cols-1"
+              aria-label="Menu utama versi mobile"
+            >
               <a
                 href="index.html"
                 class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] transition-colors duration-300 hover:border-[#FF6B18]"
-                >Home</a
+                >Beranda</a
               >
               <a
                 href="publicationPage.html"
                 class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] transition-colors duration-300 hover:border-[#FF6B18]"
-                >Publication</a
+                >Publikasi</a
               >
               <a
                 href="eventPage.html"
@@ -142,17 +152,24 @@
                 href="aboutPage.html"
                 class="rounded-xl px-4 py-3 text-sm font-bold border border-[#FF6B18] bg-[#FFF7F2] text-[#FF6B18]"
                 aria-current="page"
-                >About</a
+                >Tentang</a
               >
               <a
                 href="contatUsPage.html"
                 class="rounded-xl px-4 py-3 text-sm font-semibold border border-[#EEF0F7] transition-colors duration-300 hover:border-[#FF6B18]"
-                >Contact</a
+                >Kontak</a
               >
+
               <a
-                href="loginPage.html"
+                href="authorRegisterPage.html"
                 class="rounded-xl px-4 py-3 text-sm font-bold text-white bg-[#FF6B18] text-center transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880]"
-                >Login</a
+                >Daftar author</a
+              >
+
+              <a
+                href="authorLoginPage.html"
+                class="rounded-xl px-4 py-3 text-sm font-bold border border-[#EEF0F7] bg-[#F4F6FB] text-center text-[#111827] transition-all duration-300 hover:border-[#FF6B18]"
+                >Masuk author</a
               >
             </div>
           </div>
@@ -166,36 +183,51 @@
           <p
             class="px-4 py-2 text-xs font-bold inline-flex items-center rounded-full bg-[#FFECE1] text-[#FF6B18]"
           >
-            About
+            Tentang
           </p>
+
           <h1
             class="mt-4 text-3xl font-bold sm:text-4xl sm:leading-[45px] leading-[40px]"
           >
-            Tentang Maga
+            BHAYASCIENTIA
           </h1>
+
           <p
             class="mt-3 max-w-2xl text-sm sm:text-base sm:leading-[24px] mx-auto leading-[21px] text-[#6B7280]"
           >
-            Maga adalah platform berita (contoh) yang fokus pada konten yang
-            relevan, ringkas, dan mudah dipahami. Halaman ini bisa kamu pakai
-            untuk menjelaskan misi, tim, dan cara kerja editorial.
+            Platform publikasi akademik non-formal yang menjaga kualitas, etika,
+            dan tanggung jawab ilmiah sebelum gagasan disampaikan ke publik.
+            BHAYASCIENTIA berada di “ruang antara”: lebih terstruktur dari blog
+            opini, tanpa mengklaim formalitas jurnal ilmiah.
           </p>
 
           <div class="mt-6 gap-3 flex flex-wrap items-center justify-center">
             <a
-              href="index.html"
-              class="bg-white px-5 py-3 text-sm font-bold rounded-full border border-[#EEF0F7] transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
-              >Kembali ke Home</a
+              href="publicationPage.html"
+              class="px-5 py-3 text-sm font-bold text-white inline-flex items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F8F9FC]"
+              >Buka publikasi</a
             >
+
+            <a
+              href="authorRegisterPage.html"
+              class="bg-white px-5 py-3 text-sm font-bold inline-flex items-center justify-center rounded-full border border-[#EEF0F7] transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+              >Daftar author</a
+            >
+
             <a
               href="contatUsPage.html"
               class="px-5 py-3 text-sm font-bold rounded-full text-[#FF6B18] transition-all duration-300 hover:bg-[#FFF7F2] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
-              >Hubungi kami</a
+              >Kontak</a
             >
           </div>
+
+          <p class="mt-3 text-xs sm:text-sm text-[#6B7280]">
+            Untuk mengirim naskah, gunakan sistem author. Form Kontak dipakai
+            untuk pertanyaan, laporan konten/bug, dan kerja sama.
+          </p>
         </section>
 
-        <!-- Stats -->
+        <!-- Positioning cards (pengganti Stats palsu) -->
         <section class="mt-10 sm:mt-12">
           <div class="gap-4 sm:grid-cols-2 lg:grid-cols-4 grid">
             <div
@@ -204,72 +236,69 @@
               <p
                 class="font-bold tracking-wide sm:text-sm text-[11px] text-[#A3A6AE]"
               >
-                Artikel terbit
+                Peran platform
               </p>
-              <p
-                class="mt-2 text-2xl font-extrabold sm:text-3xl text-[#111827]"
-              >
-                1.2K+
+              <p class="mt-2 text-lg font-extrabold sm:text-xl text-[#111827]">
+                Penjembatan gagasan
               </p>
               <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                Konten editorial (contoh angka).
+                Menghubungkan penulis, gagasan ilmiah, dan kebutuhan publik.
               </p>
             </div>
+
             <div
               class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
             >
               <p
                 class="font-bold tracking-wide sm:text-sm text-[11px] text-[#A3A6AE]"
               >
-                Kategori
+                Target utama
               </p>
-              <p
-                class="mt-2 text-2xl font-extrabold sm:text-3xl text-[#111827]"
-              >
-                12
+              <p class="mt-2 text-lg font-extrabold sm:text-xl text-[#111827]">
+                Aparat & publik
               </p>
               <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                Topik yang selalu di-update.
+                Terbuka untuk anggota kepolisian dan masyarakat umum yang
+                analitis.
               </p>
             </div>
+
             <div
               class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
             >
               <p
                 class="font-bold tracking-wide sm:text-sm text-[11px] text-[#A3A6AE]"
               >
-                Pembaca
+                Fokus kualitas
               </p>
-              <p
-                class="mt-2 text-2xl font-extrabold sm:text-3xl text-[#111827]"
-              >
-                50K+
+              <p class="mt-2 text-lg font-extrabold sm:text-xl text-[#111827]">
+                Editorial review
               </p>
               <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                Kunjungan bulanan (contoh).
+                Peninjauan untuk struktur, kejelasan, argumentasi, dan etika
+                sitasi.
               </p>
             </div>
+
             <div
               class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
             >
               <p
                 class="font-bold tracking-wide sm:text-sm text-[11px] text-[#A3A6AE]"
               >
-                Newsletter
+                Hak cipta
               </p>
-              <p
-                class="mt-2 text-2xl font-extrabold sm:text-3xl text-[#111827]"
-              >
-                8K+
+              <p class="mt-2 text-lg font-extrabold sm:text-xl text-[#111827]">
+                Milik penulis
               </p>
               <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                Subscriber (contoh).
+                Platform mendapat hak non-eksklusif untuk menampilkan karya.
               </p>
             </div>
           </div>
         </section>
 
-        <!-- Mission + Values -->
+        <!-- Visi + Misi -->
         <section
           class="mt-10 gap-8 lg:grid-cols-2 lg:items-start sm:mt-12 grid"
         >
@@ -278,28 +307,28 @@
               class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
             >
               <h2 class="text-xl font-bold sm:text-[22px] text-[#111827]">
-                Misi
+                Visi
               </h2>
               <p
                 class="mt-2 text-sm sm:text-base sm:leading-[24px] leading-[22px] text-[#6B7280]"
               >
-                Menyajikan berita yang cepat, akurat, dan mudah diakses di
-                berbagai perangkat. Fokusnya adalah pengalaman membaca yang
-                nyaman untuk semua pengguna.
+                Menjadi platform publikasi terbuka yang menjaga kualitas
+                pemikiran ilmiah dan memperluas akses publik terhadap gagasan
+                akademik yang bertanggung jawab.
               </p>
 
               <div
                 class="mt-5 rounded-2xl p-4 border border-[#EEF0F7] bg-[#F8F9FC]"
               >
                 <p class="text-sm font-bold text-[#111827]">
-                  Prinsip editorial (contoh)
+                  Kenapa “ruang antara”?
                 </p>
                 <ul
                   class="mt-3 space-y-1 pl-5 text-sm list-disc leading-[22px] text-[#6B7280]"
                 >
-                  <li>Verifikasi sebelum publikasi.</li>
-                  <li>Pisahkan fakta dan opini.</li>
-                  <li>Koreksi cepat jika ada kekeliruan.</li>
+                  <li>Lebih rapi dari blog opini: ada standar editorial.</li>
+                  <li>Tidak mengklaim jurnal formal (ISBN/DOI/akreditasi).</li>
+                  <li>Fokus pada manfaat publik dan tanggung jawab argumen.</li>
                 </ul>
               </div>
             </div>
@@ -310,139 +339,387 @@
               class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
             >
               <h2 class="text-xl font-bold sm:text-[22px] text-[#111827]">
-                Nilai inti
+                Misi
               </h2>
 
-              <div class="mt-4 gap-4 sm:grid-cols-2 grid">
-                <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
-                  <p class="text-sm font-bold text-[#111827]">Akurat</p>
-                  <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                    Mengutamakan sumber terpercaya dan pengecekan fakta.
-                  </p>
-                </div>
-                <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
-                  <p class="text-sm font-bold text-[#111827]">Cepat</p>
-                  <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                    Update peristiwa penting tanpa mengorbankan kualitas.
-                  </p>
-                </div>
-                <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
-                  <p class="text-sm font-bold text-[#111827]">Rapi</p>
-                  <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                    Desain dan struktur konten dibuat mudah dipindai.
-                  </p>
-                </div>
-                <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
-                  <p class="text-sm font-bold text-[#111827]">Aman</p>
-                  <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                    Menjaga privasi pengguna dan keamanan akun.
-                  </p>
-                </div>
+              <ul
+                class="mt-4 space-y-2 pl-5 text-sm sm:text-base list-disc leading-[24px] text-[#6B7280]"
+              >
+                <li>
+                  Menyediakan ruang publikasi non-formal untuk karya ilmiah dan
+                  pemikiran akademik.
+                </li>
+                <li>
+                  Melakukan peninjauan editorial untuk meningkatkan kualitas
+                  tulisan.
+                </li>
+                <li>
+                  Mendukung aparatur negara (khususnya kepolisian) dalam budaya
+                  menulis ilmiah.
+                </li>
+                <li>
+                  Menjembatani gagasan akademik dengan kebutuhan masyarakat.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Nilai inti -->
+        <section class="mt-10 sm:mt-12">
+          <div class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]">
+            <div
+              class="gap-4 sm:flex-row sm:items-center sm:justify-between flex flex-col"
+            >
+              <div class="min-w-0">
+                <h2 class="text-xl font-bold sm:text-[22px] text-[#111827]">
+                  Nilai inti
+                </h2>
+                <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                  Cara BHAYASCIENTIA menjaga kualitas tanpa menjadi elitis.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-4 gap-4 sm:grid-cols-2 lg:grid-cols-3 grid">
+              <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
+                <p class="text-sm font-bold text-[#111827]">Integrity</p>
+                <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                  Kejujuran akademik dan etika penulisan.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
+                <p class="text-sm font-bold text-[#111827]">Discipline</p>
+                <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                  Ketertiban berpikir, struktur, dan metodologi.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
+                <p class="text-sm font-bold text-[#111827]">Public service</p>
+                <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                  Ilmu sebagai bentuk pengabdian kepada masyarakat.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
+                <p class="text-sm font-bold text-[#111827]">Inclusivity</p>
+                <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                  Terbuka bagi aparatur dan masyarakat umum.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
+                <p class="text-sm font-bold text-[#111827]">
+                  Intellectual responsibility
+                </p>
+                <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                  Penulis bertanggung jawab atas argumen dan rujukannya.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl bg-white p-4 border border-[#EEF0F7] bg-[#F8F9FC]"
+              >
+                <p class="text-sm font-bold text-[#111827]">Nada komunikasi</p>
+                <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                  Tenang, rasional, objektif; membina tanpa menghakimi.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Team -->
-        <section class="mt-10 sm:mt-12">
+        <!-- TIM -->
+        <section class="mt-10 sm:mt-12" id="tim">
           <div class="text-center">
             <p
               class="px-4 py-2 text-xs font-bold inline-flex items-center rounded-full bg-[#F4F6FB] text-[#111827]"
             >
-              Team
+              Tim
             </p>
             <h2 class="mt-4 text-2xl font-bold sm:text-3xl text-[#111827]">
-              Tim di balik Maga
+              Tim di balik BHAYASCIENTIA
             </h2>
             <p
               class="mt-3 max-w-2xl text-sm sm:text-base sm:leading-[24px] mx-auto leading-[21px] text-[#6B7280]"
             >
-              Ini contoh komponen tim. Bisa diganti jadi “Editorial board”,
-              “Contributors”, atau dihubungkan ke data.
+              BHAYASCIENTIA dikelola oleh tim editorial dan operasional yang
+              menjaga kualitas tulisan, proses review, serta pengalaman pembaca.
             </p>
           </div>
 
           <div
             class="mt-8 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-[30px] grid"
           >
-            <!-- Card -->
+            <!-- Card 1 -->
             <article
               class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
             >
               <div class="gap-3 flex items-center">
-                <img
-                  src="../../public/assets/images/photos/photo.png"
-                  alt="Team member"
-                  class="h-12 w-12 ring-white rounded-full object-cover ring-2"
-                />
+                <div
+                  class="h-12 w-12 flex items-center justify-center rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                >
+                  <span class="text-xs font-bold text-[#6B7280]">EIC</span>
+                </div>
                 <div class="min-w-0">
-                  <p class="text-sm font-bold truncate text-[#111827]">
-                    Nama Editor
-                  </p>
+                  <p class="text-sm font-bold truncate text-[#111827]">Nama</p>
                   <p
                     class="sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
                   >
-                    Editor in Chief
+                    Pemimpin Editorial
                   </p>
                 </div>
               </div>
               <p class="mt-4 text-sm leading-[22px] text-[#6B7280]">
-                Fokus pada kualitas editorial, kurasi topik utama, dan standar
-                penulisan.
+                Menjaga arah kurasi, standar etika, dan keputusan akhir
+                kelayakan tayang.
               </p>
             </article>
 
+            <!-- Card 2 -->
             <article
               class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
             >
               <div class="gap-3 flex items-center">
-                <img
-                  src="../../public/assets/images/photos/photo1.png"
-                  alt="Team member"
-                  class="h-12 w-12 ring-white rounded-full object-cover ring-2"
-                />
+                <div
+                  class="h-12 w-12 flex items-center justify-center rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                >
+                  <span class="text-xs font-bold text-[#6B7280]">ED</span>
+                </div>
                 <div class="min-w-0">
-                  <p class="text-sm font-bold truncate text-[#111827]">
-                    Nama Penulis
-                  </p>
+                  <p class="text-sm font-bold truncate text-[#111827]">Nama</p>
                   <p
                     class="sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
                   >
-                    Reporter
+                    Editor
                   </p>
                 </div>
               </div>
               <p class="mt-4 text-sm leading-[22px] text-[#6B7280]">
-                Menulis berita harian dan memastikan struktur artikel mudah
+                Memberi catatan editorial pada struktur, kejelasan, dan
+                konsistensi rujukan.
+              </p>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <div class="gap-3 flex items-center">
+                <div
+                  class="h-12 w-12 flex items-center justify-center rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                >
+                  <span class="text-xs font-bold text-[#6B7280]">QC</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-bold truncate text-[#111827]">Nama</p>
+                  <p
+                    class="sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
+                  >
+                    Quality & Etika
+                  </p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-[22px] text-[#6B7280]">
+                Memastikan kepatuhan etika penulisan, atribusi, dan risiko
+                konten yang sensitif.
+              </p>
+            </article>
+
+            <!-- Card 4 -->
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <div class="gap-3 flex items-center">
+                <div
+                  class="h-12 w-12 flex items-center justify-center rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                >
+                  <span class="text-xs font-bold text-[#6B7280]">OPS</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-bold truncate text-[#111827]">Nama</p>
+                  <p
+                    class="sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
+                  >
+                    Operasional Platform
+                  </p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-[22px] text-[#6B7280]">
+                Mengelola alur submit, status naskah di sistem, dan komunikasi
+                notifikasi.
+              </p>
+            </article>
+
+            <!-- Card 5 -->
+            <article
+              class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
+            >
+              <div class="gap-3 flex items-center">
+                <div
+                  class="h-12 w-12 flex items-center justify-center rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                >
+                  <span class="text-xs font-bold text-[#6B7280]">PRD</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-bold truncate text-[#111827]">Nama</p>
+                  <p
+                    class="sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
+                  >
+                    Produk & UX
+                  </p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-[22px] text-[#6B7280]">
+                Menjaga pengalaman pengguna agar jelas, rapi, dan mudah
                 dipahami.
               </p>
             </article>
 
+            <!-- Card 6 -->
             <article
               class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]"
             >
               <div class="gap-3 flex items-center">
-                <img
-                  src="../../public/assets/images/photos/photo2.png"
-                  alt="Team member"
-                  class="h-12 w-12 ring-white rounded-full object-cover ring-2"
-                />
+                <div
+                  class="h-12 w-12 flex items-center justify-center rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                >
+                  <span class="text-xs font-bold text-[#6B7280]">DEV</span>
+                </div>
                 <div class="min-w-0">
-                  <p class="text-sm font-bold truncate text-[#111827]">
-                    Nama Designer
-                  </p>
+                  <p class="text-sm font-bold truncate text-[#111827]">Nama</p>
                   <p
                     class="sm:text-sm sm:leading-[21px] text-[11px] leading-[16px] text-[#A3A6AE]"
                   >
-                    Product Design
+                    Engineering
                   </p>
                 </div>
               </div>
               <p class="mt-4 text-sm leading-[22px] text-[#6B7280]">
-                Mengoptimalkan UI/UX supaya nyaman dibaca di mobile maupun
-                desktop.
+                Mengembangkan sistem author, keamanan, dan stabilitas platform.
               </p>
             </article>
+          </div>
+
+          <div class="mt-6 text-center">
+            <p class="text-xs sm:text-sm text-[#6B7280]">
+              Ingin berkontribusi sebagai penulis atau editor? Daftar author
+              untuk mulai mengirim naskah, atau hubungi tim untuk kolaborasi.
+            </p>
+            <div class="mt-4 gap-3 flex flex-wrap items-center justify-center">
+              <a
+                href="authorRegisterPage.html"
+                class="px-5 py-3 text-sm font-bold text-white inline-flex items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880]"
+                >Daftar author</a
+              >
+              <a
+                href="contatUsPage.html"
+                class="bg-white px-5 py-3 text-sm font-bold inline-flex items-center justify-center rounded-full border border-[#EEF0F7] transition-all duration-300 hover:bg-[#F4F6FB]"
+                >Kontak tim</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- Cara kerja editorial -->
+        <section class="mt-10 sm:mt-12">
+          <div class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]">
+            <div
+              class="gap-6 lg:flex-row lg:items-start lg:justify-between flex flex-col"
+            >
+              <div class="min-w-0">
+                <h2 class="text-xl font-bold sm:text-[22px] text-[#111827]">
+                  Cara kerja review
+                </h2>
+                <p
+                  class="mt-2 text-sm sm:text-base sm:leading-[24px] leading-[22px] text-[#6B7280]"
+                >
+                  Peninjauan bersifat editorial—fokus pada argumentasi,
+                  struktur, kejelasan, dan etika akademik—bukan peer-review
+                  jurnal.
+                </p>
+
+                <div
+                  class="mt-5 rounded-2xl p-4 border border-[#EEF0F7] bg-[#F8F9FC]"
+                >
+                  <p class="text-sm font-bold text-[#111827]">
+                    Status naskah di sistem
+                  </p>
+                  <ul
+                    class="mt-3 space-y-1 pl-5 text-sm list-disc leading-[22px] text-[#6B7280]"
+                  >
+                    <li>Terkirim → menunggu peninjauan.</li>
+                    <li>Dalam peninjauan → sedang dibaca tim editorial.</li>
+                    <li>Perlu revisi → ada catatan, unggah versi revisi.</li>
+                    <li>Diterima → siap terbit.</li>
+                    <li>Terbit → tampil di halaman Publikasi.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="lg:max-w-[420px] w-full shrink-0">
+                <div
+                  class="rounded-2xl p-5 border border-[#EEF0F7] bg-[#F4F6FB]"
+                >
+                  <p class="text-xs font-bold tracking-wide text-[#A3A6AE]">
+                    Untuk penulis
+                  </p>
+                  <p class="mt-2 text-lg font-bold text-[#111827]">
+                    Siap kirim naskah?
+                  </p>
+                  <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
+                    Daftar author untuk unggah naskah dan pantau status review
+                    di dashboard.
+                  </p>
+                  <a
+                    href="authorRegisterPage.html"
+                    class="mt-4 px-5 py-3 text-sm font-bold text-white inline-flex w-full items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880]"
+                    >Daftar author</a
+                  >
+                  <a
+                    href="authorLoginPage.html"
+                    class="mt-3 px-5 py-3 text-sm font-bold bg-white inline-flex w-full items-center justify-center rounded-full border border-[#EEF0F7] transition-all duration-300 hover:bg-[#F4F6FB]"
+                    >Masuk author</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hak cipta & watermark -->
+        <section class="mt-10 sm:mt-12">
+          <div class="bg-white p-5 sm:p-6 rounded-[22px] ring-1 ring-[#EEF0F7]">
+            <h2 class="text-xl font-bold sm:text-[22px] text-[#111827]">
+              Hak cipta & watermark
+            </h2>
+            <p
+              class="mt-2 text-sm sm:text-base sm:leading-[24px] leading-[22px] text-[#6B7280]"
+            >
+              Hak cipta tetap milik penulis. Platform memperoleh hak
+              non-eksklusif untuk menampilkan karya, termasuk penggunaan
+              watermark sebagai identitas publikasi.
+            </p>
+
+            <div class="mt-5 gap-4 sm:grid-cols-2 grid">
+              <div class="rounded-2xl bg-white p-4 border border-[#EEF0F7]">
+                <p class="text-sm font-bold text-[#111827]">Fungsi watermark</p>
+                <ul
+                  class="mt-2 space-y-1 pl-5 text-sm list-disc leading-[22px] text-[#6B7280]"
+                >
+                  <li>Identitas publikasi.</li>
+                  <li>Pencegahan penyalahgunaan.</li>
+                  <li>Penanda versi yang sudah melalui review editorial.</li>
+                </ul>
+              </div>
+              <div
+                class="rounded-2xl bg-white p-4 border border-[#EEF0F7] bg-[#F8F9FC]"
+              >
+                <p class="text-sm font-bold text-[#111827]">
+                  Pernyataan singkat
+                </p>
+                <p class="mt-2 text-sm leading-[22px] text-[#6B7280]">
+                  Watermark tidak mengalihkan hak cipta dari penulis.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -454,20 +731,28 @@
             >
               <div class="min-w-0">
                 <h3 class="text-xl font-bold text-[#111827]">
-                  Ingin kerja sama?
+                  Punya pertanyaan atau ingin kerja sama?
                 </h3>
                 <p class="mt-1 text-sm leading-[22px] text-[#6B7280]">
-                  Untuk partnership, media kit, atau pertanyaan lain, silakan
-                  hubungi kami.
+                  Gunakan halaman Kontak untuk pertanyaan, laporan konten/bug,
+                  atau kerja sama di luar pengiriman naskah.
                 </p>
               </div>
 
-              <a
-                href="contatUsPage.html"
-                class="px-5 py-3 text-sm font-bold text-white focus-visible:ring-offset-white inline-flex items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18] focus-visible:ring-offset-2"
-              >
-                Contact
-              </a>
+              <div class="gap-3 flex flex-wrap items-center">
+                <a
+                  href="contatUsPage.html"
+                  class="px-5 py-3 text-sm font-bold text-white focus-visible:ring-offset-white inline-flex items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18] focus-visible:ring-offset-2"
+                >
+                  Buka Kontak
+                </a>
+                <a
+                  href="publicationPage.html"
+                  class="bg-white px-5 py-3 text-sm font-bold inline-flex items-center justify-center rounded-full border border-[#EEF0F7] transition-all duration-300 hover:bg-[#F4F6FB]"
+                >
+                  Lihat Publikasi
+                </a>
+              </div>
             </div>
           </div>
         </section>
