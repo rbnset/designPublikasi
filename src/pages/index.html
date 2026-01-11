@@ -1391,9 +1391,214 @@
       </main>
     </div>
 
+    <!-- FOOTER (FULL-WIDTH / FULL-BLEED) -->
+    <footer class="text-white w-full bg-[#111827]">
+      <!-- optional top separator -->
+      <div class="bg-white/10 h-px w-full"></div>
+
+      <div class="px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
+        <!-- inner container: hanya konten yang dibatasi -->
+        <div class="mx-auto max-w-[1130px]">
+          <div class="lg:grid-cols-12 gap-8 lg:gap-10 grid grid-cols-1">
+            <!-- Brand -->
+            <div class="lg:col-span-5">
+              <a
+                href="index.html"
+                class="gap-3 inline-flex items-center"
+                aria-label="Beranda BHAYASCIENTIA"
+              >
+                <img
+                  src="../../public/assets/images/logos/logo.svg"
+                  alt="BHAYASCIENTIA"
+                  class="h-8 w-auto"
+                />
+              </a>
+
+              <p
+                class="mt-4 text-sm sm:text-base leading-7 text-white/70 max-w-prose"
+              >
+                Publikasi akademik non-formal untuk penulis yang ingin naskahnya
+                lebih rapi, risetnya lebih kuat, dan prosesnya lebih jelas.
+              </p>
+
+              <div class="mt-6 sm:flex-row gap-3 flex flex-col">
+                <a
+                  href="publicationPage.html"
+                  class="px-6 py-3 text-white text-sm sm:text-[16px] font-bold inline-flex items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                >
+                  Buka publikasi
+                </a>
+
+                <a
+                  href="contatUsPage.html"
+                  class="px-6 py-3 text-sm sm:text-[16px] font-bold border-white/25 text-white inline-flex items-center justify-center rounded-full border transition-all duration-300 hover:border-[#FF6B18] hover:bg-[#FF6B18] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                >
+                  Hubungi kami
+                </a>
+              </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="lg:col-span-7">
+              <div class="sm:grid-cols-3 gap-4 grid grid-cols-1">
+                <!-- Menu -->
+                <div class="rounded-2xl border-white/10 bg-white/5 p-5 border">
+                  <p class="text-sm font-bold">Menu</p>
+                  <ul class="mt-3 space-y-2 text-sm">
+                    <li>
+                      <a
+                        class="text-white/70 hover:text-white font-semibold"
+                        href="index.html"
+                        >Beranda</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white/70 hover:text-white font-semibold"
+                        href="publicationPage.html"
+                        >Publikasi</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white/70 hover:text-white font-semibold"
+                        href="eventPage.html"
+                        >Event</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white/70 hover:text-white font-semibold"
+                        href="aboutPage.html"
+                        >Tentang</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white/70 hover:text-white font-semibold"
+                        href="contatUsPage.html"
+                        >Kontak</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Bantuan -->
+                <div class="rounded-2xl border-white/10 bg-white/5 p-5 border">
+                  <p class="text-sm font-bold">Bantuan</p>
+                  <ul class="mt-3 space-y-2 text-sm">
+                    <li>
+                      <a
+                        class="text-white/70 hover:text-white font-semibold"
+                        href="#alur"
+                        >Alur publikasi</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white/70 hover:text-white font-semibold"
+                        href="#faq"
+                        >FAQ</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-white/70 hover:text-white font-semibold"
+                        href="searchPage.html"
+                        >Pencarian</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Kontak (FIX layout) -->
+                <div class="rounded-2xl border-white/10 bg-white/5 p-5 border">
+                  <p class="text-sm font-bold">Kontak</p>
+
+                  <dl class="mt-3 space-y-3 text-sm">
+                    <!-- Email -->
+                    <div class="gap-3 flex items-start">
+                      <dt class="w-14 text-white/60 font-semibold shrink-0">
+                        Email
+                      </dt>
+                      <dd class="min-w-0 font-semibold">
+                        <a
+                          href="mailto:halo@bhayascientia.id"
+                          class="text-white/80 hover:text-white break-words"
+                        >
+                          halo@bhayascientia.id
+                        </a>
+                      </dd>
+                    </div>
+
+                    <!-- Alamat -->
+                    <div class="gap-3 flex items-start">
+                      <dt class="w-14 text-white/60 font-semibold shrink-0">
+                        Alamat
+                      </dt>
+                      <dd
+                        class="min-w-0 text-white/80 font-semibold leading-6 break-words"
+                      >
+                        Depok, Yogyakarta
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <div class="mt-4 gap-2 flex flex-wrap">
+                    <a
+                      href="#"
+                      class="h-10 w-10 border-white/10 bg-white/5 hover:bg-white/10 inline-flex items-center justify-center rounded-full border transition-colors"
+                      aria-label="Instagram"
+                      title="Instagram"
+                    >
+                      <span class="text-xs font-bold">IG</span>
+                    </a>
+                    <a
+                      href="#"
+                      class="h-10 w-10 border-white/10 bg-white/5 hover:bg-white/10 inline-flex items-center justify-center rounded-full border transition-colors"
+                      aria-label="X"
+                      title="X"
+                    >
+                      <span class="text-xs font-bold">X</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom -->
+          <div
+            class="mt-10 pt-6 border-white/10 sm:flex-row gap-4 sm:items-center flex flex-col items-start justify-between border-t"
+          >
+            <p class="text-sm text-white/60 font-semibold">
+              © <span id="footerYear">2026</span> BHAYASCIENTIA. Semua hak
+              dilindungi.
+            </p>
+
+            <div class="gap-x-6 gap-y-2 text-sm font-semibold flex flex-wrap">
+              <a href="#" class="text-white/60 hover:text-white"
+                >Kebijakan Privasi</a
+              >
+              <a href="#" class="text-white/60 hover:text-white"
+                >Syarat &amp; Ketentuan</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="../../public/assets/js/main.js"></script>
     <script src="../../public/assets/js/card.js"></script>
     <script src="../../public/assets/js/faq.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const el = document.getElementById("footerYear");
+        if (el) el.textContent = new Date().getFullYear();
+      });
+    </script>
 
     <!-- JS: active nav + mobile menu + desktop search + toast -->
     <script>
