@@ -1207,11 +1207,193 @@
             </div>
           </div>
         </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="mt-10 sm:mt-12 pt-12">
+          <div class="px-4 sm:px-6 lg:px-8 mx-auto max-w-[1130px]">
+            <div class="text-center">
+              <p
+                class="text-xs font-bold px-4 py-2 inline-flex items-center rounded-full bg-[#FFECE1] text-[#FF6B18]"
+              >
+                FAQ
+              </p>
+              <h2 class="mt-4 text-2xl sm:text-3xl font-bold text-[#111827]">
+                Pertanyaan yang sering ditanyakan
+              </h2>
+              <p
+                class="mt-3 max-w-2xl text-sm sm:text-base mx-auto leading-[22px] text-[#6B7280]"
+              >
+                Tidak menemukan jawaban? Hubungi tim BHAYASCIENTIA, nanti
+                dibantu.
+              </p>
+              <a
+                href="contatUsPage.html"
+                class="mt-5 px-6 py-3 text-white text-sm sm:text-[16px] font-bold inline-flex items-center justify-center rounded-full bg-[#FF6B18] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF6B1880] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+              >
+                Hubungi kami
+              </a>
+            </div>
+
+            <div
+              class="mt-8 lg:grid-cols-2 gap-6 lg:gap-10 grid grid-cols-1 items-start"
+            >
+              <!-- Left note / visual (opsional, biar mirip gaya section lain) -->
+              <div
+                class="rounded-3xl bg-white p-6 sm:p-8 border border-[#EEF0F7]"
+              >
+                <div class="gap-4 flex items-start">
+                  <div
+                    class="h-12 w-12 flex shrink-0 items-center justify-center rounded-full bg-[#FF6B18]"
+                  >
+                    <img
+                      src="../../public/assets/images/icons/device-message.svg"
+                      alt=""
+                      class="h-6 w-6"
+                    />
+                  </div>
+                  <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-[#111827]">
+                      Bantuan cepat
+                    </h3>
+                    <p
+                      class="mt-1 text-sm sm:text-base leading-6 text-[#6B7280]"
+                    >
+                      FAQ ini fokus pada alur publikasi, akun author, dan hal
+                      teknis umum.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-5 gap-2 text-sm flex flex-wrap">
+                  <a
+                    href="publicationPage.html"
+                    class="px-4 py-2 font-semibold rounded-full bg-[#F4F6FB] text-[#111827] hover:bg-[#EEF0F7]"
+                  >
+                    Lihat publikasi
+                  </a>
+                  <a
+                    href="#alur"
+                    class="px-4 py-2 font-semibold rounded-full bg-[#F4F6FB] text-[#111827] hover:bg-[#EEF0F7]"
+                  >
+                    Pelajari alur
+                  </a>
+                </div>
+              </div>
+
+              <!-- Accordion -->
+              <div class="gap-4 flex flex-col">
+                <!-- Item -->
+                <div class="rounded-2xl bg-white border border-[#EEF0F7]">
+                  <button
+                    type="button"
+                    class="accordion-button gap-4 p-5 sm:p-6 rounded-2xl flex w-full items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                    aria-expanded="false"
+                    aria-controls="faq-1"
+                    data-accordion="faq-1"
+                  >
+                    <span class="font-bold text-base sm:text-lg text-[#111827]">
+                      Bagaimana cara mulai menjadi author?
+                    </span>
+                    <span
+                      class="arrow h-9 w-9 flex shrink-0 items-center justify-center rounded-full bg-[#F4F6FB]"
+                    >
+                      <img
+                        src="../../public/assets/images/icons/arrow-circle-down.svg"
+                        alt=""
+                        class="h-5 w-5 transition-transform duration-300"
+                      />
+                    </span>
+                  </button>
+
+                  <div
+                    id="faq-1"
+                    class="accordion-content px-5 sm:px-6 pb-5 sm:pb-6 hidden"
+                  >
+                    <p class="text-sm sm:text-base leading-7 text-[#6B7280]">
+                      Daftar akun author, lengkapi profil penulis, lalu unggah
+                      naskah dari dashboard author (bukan melalui form Kontak).
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Item -->
+                <div class="rounded-2xl bg-white border border-[#EEF0F7]">
+                  <button
+                    type="button"
+                    class="accordion-button gap-4 p-5 sm:p-6 rounded-2xl flex w-full items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                    aria-expanded="false"
+                    aria-controls="faq-2"
+                    data-accordion="faq-2"
+                  >
+                    <span class="font-bold text-base sm:text-lg text-[#111827]">
+                      Apakah status review bisa dilihat?
+                    </span>
+                    <span
+                      class="arrow h-9 w-9 flex shrink-0 items-center justify-center rounded-full bg-[#F4F6FB]"
+                    >
+                      <img
+                        src="../../public/assets/images/icons/arrow-circle-down.svg"
+                        alt=""
+                        class="h-5 w-5 transition-transform duration-300"
+                      />
+                    </span>
+                  </button>
+
+                  <div
+                    id="faq-2"
+                    class="accordion-content px-5 sm:px-6 pb-5 sm:pb-6 hidden"
+                  >
+                    <p class="text-sm sm:text-base leading-7 text-[#6B7280]">
+                      Ya. Progres review dan permintaan revisi akan ditampilkan
+                      di dashboard, sehingga author tidak perlu menebak status.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Item -->
+                <div class="rounded-2xl bg-white border border-[#EEF0F7]">
+                  <button
+                    type="button"
+                    class="accordion-button gap-4 p-5 sm:p-6 rounded-2xl flex w-full items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
+                    aria-expanded="false"
+                    aria-controls="faq-3"
+                    data-accordion="faq-3"
+                  >
+                    <span class="font-bold text-base sm:text-lg text-[#111827]">
+                      Jika ada kendala teknis, harus ke mana?
+                    </span>
+                    <span
+                      class="arrow h-9 w-9 flex shrink-0 items-center justify-center rounded-full bg-[#F4F6FB]"
+                    >
+                      <img
+                        src="../../public/assets/images/icons/arrow-circle-down.svg"
+                        alt=""
+                        class="h-5 w-5 transition-transform duration-300"
+                      />
+                    </span>
+                  </button>
+
+                  <div
+                    id="faq-3"
+                    class="accordion-content px-5 sm:px-6 pb-5 sm:pb-6 hidden"
+                  >
+                    <p class="text-sm sm:text-base leading-7 text-[#6B7280]">
+                      Gunakan halaman Kontak untuk masalah akun/login, unggah
+                      file, atau tampilan halaman. Sertakan screenshot agar
+                      respon lebih cepat.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
 
     <script src="../../public/assets/js/main.js"></script>
     <script src="../../public/assets/js/card.js"></script>
+    <script src="../../public/assets/js/faq.js"></script>
 
     <!-- JS: active nav + mobile menu + desktop search + toast -->
     <script>
