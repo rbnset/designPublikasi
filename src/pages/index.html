@@ -222,22 +222,6 @@
               </div>
             </nav>
 
-            <!-- Desktop Search -->
-            <button
-              id="searchToggleBtn"
-              type="button"
-              class="h-10 w-10 bg-white xl:flex hidden items-center justify-center rounded-full border border-[#EEF0F7] transition-all duration-300 hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
-              aria-controls="searchPanel"
-              aria-expanded="false"
-              aria-label="Buka pencarian"
-            >
-              <img
-                src="../../public/assets/images/icons/search-normal.svg"
-                alt=""
-                class="h-5 w-5"
-              />
-            </button>
-
             <!-- Desktop CTA -->
             <a
               href="publicationPage.html"
@@ -276,53 +260,6 @@
                 <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
               </svg>
             </button>
-          </div>
-        </div>
-
-        <!-- SEARCH OVERLAY desktop -->
-        <div
-          id="searchOverlay"
-          class="inset-0 bg-black/25 pointer-events-none fixed z-40 hidden backdrop-blur-[2px]"
-          aria-hidden="true"
-        ></div>
-
-        <!-- SEARCH PANEL desktop -->
-        <div id="searchPanel" class="relative z-50 hidden">
-          <div class="mt-4 flex justify-center">
-            <form
-              action="searchPage.html"
-              role="search"
-              class="max-w-xl bg-white flex w-full items-center gap-[10px] rounded-full border border-[#E8EBF4] p-[12px_20px] transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FF6B18]"
-            >
-              <button
-                type="submit"
-                class="h-5 w-5 flex shrink-0"
-                aria-label="Cari"
-              >
-                <img
-                  src="../../public/assets/images/icons/search-normal.svg"
-                  alt=""
-                />
-              </button>
-
-              <input
-                id="searchInputDesktop"
-                type="text"
-                name="q"
-                autocomplete="off"
-                class="font-semibold placeholder:font-normal w-full appearance-none outline-none placeholder:text-[#A3A6AE]"
-                placeholder="Cari publikasi, topik, atau penulis…"
-              />
-
-              <button
-                type="reset"
-                id="searchClearBtn"
-                class="h-8 w-8 hidden shrink-0 items-center justify-center rounded-full hover:bg-[#F4F6FB] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B18]"
-                aria-label="Hapus teks pencarian"
-              >
-                <span class="text-lg leading-none">&times;</span>
-              </button>
-            </form>
           </div>
         </div>
 
@@ -2330,51 +2267,6 @@
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape") setMobileOpen(false);
         });
-      })();
-
-      // Desktop search open/close
-      (function () {
-        const searchToggleBtn = document.getElementById("searchToggleBtn");
-        const searchPanel = document.getElementById("searchPanel");
-        const searchOverlay = document.getElementById("searchOverlay");
-        const searchInputDesktop =
-          document.getElementById("searchInputDesktop");
-        const clearBtn = document.getElementById("searchClearBtn");
-
-        function setSearchOpen(open) {
-          searchPanel?.classList.toggle("hidden", !open);
-          searchOverlay?.classList.toggle("hidden", !open);
-          searchOverlay?.classList.toggle("pointer-events-none", !open);
-          searchOverlay?.classList.toggle("pointer-events-auto", open);
-          searchToggleBtn?.setAttribute("aria-expanded", String(open));
-          document.documentElement.classList.toggle("overflow-hidden", open);
-          document.body.classList.toggle("overflow-hidden", open);
-          if (open) setTimeout(() => searchInputDesktop?.focus(), 0);
-        }
-
-        function syncClear() {
-          if (!searchInputDesktop || !clearBtn) return;
-          const has = !!searchInputDesktop.value;
-          clearBtn.classList.toggle("hidden", !has);
-          clearBtn.classList.toggle("flex", has);
-        }
-
-        searchToggleBtn?.addEventListener("click", () => {
-          const open = searchPanel?.classList.contains("hidden");
-          setSearchOpen(!!open);
-        });
-
-        searchOverlay?.addEventListener("click", () => setSearchOpen(false));
-
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") setSearchOpen(false);
-        });
-
-        searchInputDesktop?.addEventListener("input", syncClear);
-        clearBtn?.addEventListener("click", () =>
-          setTimeout(() => searchInputDesktop?.focus(), 0),
-        );
-        syncClear();
       })();
 
       // Toast coming soon (demo)
