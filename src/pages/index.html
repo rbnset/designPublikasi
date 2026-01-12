@@ -10,6 +10,147 @@
       rel="stylesheet"
     />
     <title>BHAYASCIENTIA — Publikasi akademik non-formal</title>
+    <style>
+      /* ===== Testimoni (BHAYASCIENTIA) ===== */
+      #testiScroller {
+        position: relative;
+      }
+
+      .testi-fade {
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 72px;
+        z-index: 10;
+        display: none;
+      }
+      @media (min-width: 1024px) {
+        .testi-fade {
+          display: block;
+        }
+        .testi-fade-top {
+          top: 0;
+          background: linear-gradient(
+            to bottom,
+            #f8f9fc 0%,
+            rgba(248, 249, 252, 0) 100%
+          );
+        }
+        .testi-fade-bottom {
+          bottom: 0;
+          background: linear-gradient(
+            to top,
+            #f8f9fc 0%,
+            rgba(248, 249, 252, 0) 100%
+          );
+        }
+      }
+
+      .testi-col {
+        overflow: hidden;
+      }
+
+      .testi-track {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        will-change: transform;
+      }
+
+      /* Card style konsisten dengan tema Anda */
+      .testi-card {
+        border: 1px solid #eef0f7;
+        background: #fff;
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .testi-stars {
+        color: #ff6b18;
+        font-weight: 800;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+      }
+      .testi-text {
+        margin-top: 12px;
+        color: #111827;
+        font-weight: 700;
+        line-height: 28px;
+        font-size: 16px;
+      }
+      .testi-user {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .testi-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: #f4f6fb;
+        border: 1px solid #eef0f7;
+        flex: 0 0 auto;
+      }
+      .testi-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .testi-name {
+        font-size: 14px;
+        font-weight: 800;
+        color: #111827;
+        margin: 0;
+      }
+      .testi-role {
+        font-size: 12px;
+        font-weight: 700;
+        color: #6b7280;
+        margin: 2px 0 0 0;
+      }
+
+      /* Animasi: track harus berisi konten yang diduplikasi (A + B) */
+      @media (min-width: 1024px) {
+        .testi-up {
+          animation: testiUp 18s linear infinite;
+        }
+        .testi-down {
+          animation: testiDown 18s linear infinite;
+        }
+
+        /* Pause saat hover biar gampang dibaca */
+        #testiScroller:hover .testi-track {
+          animation-play-state: paused;
+        }
+      }
+
+      @keyframes testiUp {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+      @keyframes testiDown {
+        0% {
+          transform: translateY(-50%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      /* Aksesibilitas: hormati preferensi reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .testi-up,
+        .testi-down {
+          animation: none !important;
+        }
+      }
+    </style>
   </head>
 
   <body class="m-0 bg-[#F8F9FC] font-[Poppins] text-[#0B0B0B]">
@@ -1208,6 +1349,546 @@
           </div>
         </section>
 
+        <!-- TESTIMONI (AUTO SCROLL 3 KOLOM) -->
+        <section id="testimoni" class="mt-10 sm:mt-12 pt-12">
+          <div class="px-4 sm:px-6 lg:px-8 mx-auto max-w-[1130px]">
+            <div class="text-center">
+              <p
+                class="text-xs font-bold px-4 py-2 inline-flex items-center rounded-full bg-[#FFECE1] text-[#FF6B18]"
+              >
+                Testimoni
+              </p>
+              <h2 class="mt-3 text-2xl sm:text-3xl font-bold text-[#111827]">
+                Kata penulis & pembaca
+              </h2>
+              <p
+                class="mt-2 text-sm sm:text-base max-w-2xl mx-auto leading-[22px] text-[#6B7280]"
+              >
+                Cerita singkat dari mereka yang pernah ikut menulis, review,
+                atau membaca publikasi di BHAYASCIENTIA.
+              </p>
+            </div>
+
+            <div class="mt-8 relative">
+              <!-- gradient top/bottom untuk efek “fade” -->
+              <div class="testi-fade testi-fade-top"></div>
+              <div class="testi-fade testi-fade-bottom"></div>
+
+              <!-- MOBILE: swipe horizontal (tidak auto) -->
+              <div
+                class="lg:hidden -mx-4 sm:-mx-6 pb-2 overflow-x-auto overscroll-x-contain"
+              >
+                <div class="px-4 sm:px-6 gap-4 flex w-max">
+                  <!-- contoh 3 kartu mobile -->
+                  <article
+                    class="sm:w-[340px] rounded-2xl bg-white p-5 w-[280px] shrink-0 border border-[#EEF0F7]"
+                  >
+                    <div class="gap-1 flex items-center">
+                      <span class="text-sm font-bold text-[#FF6B18]"
+                        >★★★★★</span
+                      >
+                      <span class="sr-only">Rating 5 dari 5</span>
+                    </div>
+                    <p
+                      class="mt-3 text-sm sm:text-base leading-7 font-semibold text-[#111827]"
+                    >
+                      Alurnya jelas. Dari daftar author sampai revisi, semuanya
+                      kebaca dan tidak bikin panik.
+                    </p>
+                    <div class="mt-4 gap-3 flex items-center">
+                      <div
+                        class="h-11 w-11 overflow-hidden rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                      >
+                        <img
+                          src="../../public/assets/images/photos/photo.png"
+                          alt="Foto testimoni"
+                          class="h-full w-full object-cover"
+                        />
+                      </div>
+                      <div class="min-w-0">
+                        <p class="text-sm font-bold truncate text-[#111827]">
+                          Dita A.
+                        </p>
+                        <p
+                          class="text-xs font-semibold truncate text-[#6B7280]"
+                        >
+                          Author
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article
+                    class="sm:w-[340px] rounded-2xl bg-white p-5 w-[280px] shrink-0 border border-[#EEF0F7]"
+                  >
+                    <div class="gap-1 flex items-center">
+                      <span class="text-sm font-bold text-[#FF6B18]"
+                        >★★★★★</span
+                      >
+                      <span class="sr-only">Rating 5 dari 5</span>
+                    </div>
+                    <p
+                      class="mt-3 text-sm sm:text-base leading-7 font-semibold text-[#111827]"
+                    >
+                      Format dan struktur tulisan jadi lebih rapi. Checklistnya
+                      membantu banget buat memastikan sitasi konsisten.
+                    </p>
+                    <div class="mt-4 gap-3 flex items-center">
+                      <div
+                        class="h-11 w-11 overflow-hidden rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                      >
+                        <img
+                          src="../../public/assets/images/photos/photo1.png"
+                          alt="Foto testimoni"
+                          class="h-full w-full object-cover"
+                        />
+                      </div>
+                      <div class="min-w-0">
+                        <p class="text-sm font-bold truncate text-[#111827]">
+                          Raka P.
+                        </p>
+                        <p
+                          class="text-xs font-semibold truncate text-[#6B7280]"
+                        >
+                          Editor
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article
+                    class="sm:w-[340px] rounded-2xl bg-white p-5 w-[280px] shrink-0 border border-[#EEF0F7]"
+                  >
+                    <div class="gap-1 flex items-center">
+                      <span class="text-sm font-bold text-[#FF6B18]"
+                        >★★★★★</span
+                      >
+                      <span class="sr-only">Rating 5 dari 5</span>
+                    </div>
+                    <p
+                      class="mt-3 text-sm sm:text-base leading-7 font-semibold text-[#111827]"
+                    >
+                      Reviewnya detail tapi tetap sopan. Revisi jadi terasa
+                      terarah, bukan sekadar “benerin ini-itu”.
+                    </p>
+                    <div class="mt-4 gap-3 flex items-center">
+                      <div
+                        class="h-11 w-11 overflow-hidden rounded-full border border-[#EEF0F7] bg-[#F4F6FB]"
+                      >
+                        <img
+                          src="../../public/assets/images/photos/photo2.png"
+                          alt="Foto testimoni"
+                          class="h-full w-full object-cover"
+                        />
+                      </div>
+                      <div class="min-w-0">
+                        <p class="text-sm font-bold truncate text-[#111827]">
+                          Bagas S.
+                        </p>
+                        <p
+                          class="text-xs font-semibold truncate text-[#6B7280]"
+                        >
+                          Reviewer
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <!-- DESKTOP: 3 kolom auto-scroll loop -->
+              <div
+                class="lg:grid gap-6 hidden h-[560px] grid-cols-3 overflow-hidden"
+                id="testiScroller"
+              >
+                <!-- Kolom 1 (naik) -->
+                <div class="testi-col">
+                  <div class="testi-track testi-up">
+                    <!-- SET A (asli) -->
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Naskah jadi lebih rapi karena ada alur review yang
+                        konsisten dan tidak “loncat-loncat”.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo3.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Nisa K.</p>
+                          <p class="testi-role">Author</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Checklist sitasi membantu memastikan rujukan konsisten
+                        tanpa harus bolak-balik banyak tools.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo4.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Bagas S.</p>
+                          <p class="testi-role">Reviewer</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Progress naskah bisa dipantau, jadi komunikasinya lebih
+                        enak dan tidak tercecer di chat.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Dita A.</p>
+                          <p class="testi-role">Author</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <!-- SET B (duplikat agar loop mulus) -->
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Naskah jadi lebih rapi karena ada alur review yang
+                        konsisten dan tidak “loncat-loncat”.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo3.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Nisa K.</p>
+                          <p class="testi-role">Author</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Checklist sitasi membantu memastikan rujukan konsisten
+                        tanpa harus bolak-balik banyak tools.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo4.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Bagas S.</p>
+                          <p class="testi-role">Reviewer</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Progress naskah bisa dipantau, jadi komunikasinya lebih
+                        enak dan tidak tercecer di chat.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Dita A.</p>
+                          <p class="testi-role">Author</p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+
+                <!-- Kolom 2 (turun) - INI yang sebelumnya terlihat tidak jalan -->
+                <div class="testi-col">
+                  <div class="testi-track testi-down">
+                    <!-- SET A -->
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Format dan struktur tulisan jadi lebih rapi.
+                        Checklistnya membantu banget buat memastikan sitasi
+                        konsisten.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo1.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Raka P.</p>
+                          <p class="testi-role">Editor</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Cara penyajiannya ringkas tapi padat. Cocok buat pembaca
+                        yang pengin cepat nangkep inti argumen.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo2.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Sinta R.</p>
+                          <p class="testi-role">Pembaca</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Alurnya jelas. Dari daftar author sampai revisi,
+                        semuanya kebaca dan tidak bikin panik.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Dita A.</p>
+                          <p class="testi-role">Author</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <!-- SET B (duplikat) -->
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Format dan struktur tulisan jadi lebih rapi.
+                        Checklistnya membantu banget buat memastikan sitasi
+                        konsisten.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo1.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Raka P.</p>
+                          <p class="testi-role">Editor</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Cara penyajiannya ringkas tapi padat. Cocok buat pembaca
+                        yang pengin cepat nangkep inti argumen.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo2.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Sinta R.</p>
+                          <p class="testi-role">Pembaca</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Alurnya jelas. Dari daftar author sampai revisi,
+                        semuanya kebaca dan tidak bikin panik.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Dita A.</p>
+                          <p class="testi-role">Author</p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+
+                <!-- Kolom 3 (naik) -->
+                <div class="testi-col">
+                  <div class="testi-track testi-up">
+                    <!-- SET A -->
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Reviewnya detail tapi tetap sopan. Revisi jadi terasa
+                        terarah, bukan sekadar “benerin ini-itu”.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo4.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Bagas S.</p>
+                          <p class="testi-role">Reviewer</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Buat pembaca, ada benang merahnya. Jadi tidak merasa
+                        “lompat” antar paragraf.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo1.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Raka P.</p>
+                          <p class="testi-role">Editor</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Enak dibaca, bahasanya tidak “berat”, tapi tetap
+                        bertanggung jawab secara akademik.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo2.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Sinta R.</p>
+                          <p class="testi-role">Pembaca</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <!-- SET B (duplikat) -->
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Reviewnya detail tapi tetap sopan. Revisi jadi terasa
+                        terarah, bukan sekadar “benerin ini-itu”.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo4.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Bagas S.</p>
+                          <p class="testi-role">Reviewer</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Buat pembaca, ada benang merahnya. Jadi tidak merasa
+                        “lompat” antar paragraf.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo1.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Raka P.</p>
+                          <p class="testi-role">Editor</p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="testi-card">
+                      <div class="testi-stars">★★★★★</div>
+                      <p class="testi-text">
+                        Enak dibaca, bahasanya tidak “berat”, tapi tetap
+                        bertanggung jawab secara akademik.
+                      </p>
+                      <div class="testi-user">
+                        <div class="testi-avatar">
+                          <img
+                            src="../../public/assets/images/photos/photo2.png"
+                            alt="Foto testimoni"
+                          />
+                        </div>
+                        <div class="testi-meta">
+                          <p class="testi-name">Sinta R.</p>
+                          <p class="testi-role">Pembaca</p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+              <!-- /#testiScroller -->
+            </div>
+          </div>
+        </section>
+
         <!-- FAQ -->
         <section id="faq" class="mt-10 sm:mt-12 pt-12">
           <div class="px-4 sm:px-6 lg:px-8 mx-auto max-w-[1130px]">
@@ -1592,6 +2273,7 @@
     <script src="../../public/assets/js/main.js"></script>
     <script src="../../public/assets/js/card.js"></script>
     <script src="../../public/assets/js/faq.js"></script>
+    <script src="../../public/assets/js/testimoni.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
